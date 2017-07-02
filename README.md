@@ -1,3 +1,3 @@
 # freecodecamp
 
-All fcc project!
+All fcc projects!
