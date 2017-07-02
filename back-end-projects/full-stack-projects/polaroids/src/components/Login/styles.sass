@@ -1,0 +1,59 @@
+@import '../../styles/variables.sass'
+
+.loginWrapper
+  min-height: 40vh
+  margin: 1rem auto 2rem auto
+  padding: 0 20px
+  .loginHeading
+    margin-bottom: 4rem
+    color: $blue
+    font-size: 1rem
+    font-weight: normal
+    word-spacing: 2px
+    letter-spacing: 2px
+
+.btnWrapper
+  margin: 2rem 0 0 0
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  a
+    margin: 0 auto 2rem auto
+    width: 100%
+    max-width: 300px
+  button
+    flex: 0
+    width: 100%
+    padding: .8rem 1rem
+    transition: all .3s
+    font-size: .8rem
+    font-weight: 700
+    background: transparent
+    border: none
+    color: $background-color
+    opacity: 1
+    text-transform: uppercase
+    border-radius: 40px
+
+    transition: box-shadow .2s ease-in-out, transform .2s linear, opacity .2s ease-in-out
+    &:hover
+      cursor: pointer
+      opacity: 1
+    &:active
+      opacity: .9
+
+  .fbBtn
+    background-color: $fbColor
+    &:hover
+      transform: translateY(-2px)
+      box-shadow: 0px 10px 5px -5px transparentize($fbColor, .6)
+  .twitterBtn
+    background-color: $twitterColor
+    &:hover
+      transform: translateY(-2px)
+      box-shadow: 0px 10px 5px -5px transparentize($twitterColor, .6)
+  .googleBtn
+    background-color: $googleColor
+    &:hover
+      transform: translateY(-2px)
+      box-shadow: 0px 10px 5px -5px transparentize($googleColor, .6)

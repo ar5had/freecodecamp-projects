@@ -1,0 +1,36 @@
+body {
+    max-width: 900px;
+    padding: 15px;
+    font-family: 'Quicksand', sans-serif;
+    margin: auto;
+    letter-spacing: 1px;
+    color: #333;
+    background: #fefefe;
+}
+
+p, li {
+    font-family: 'open sans', sans-serif;
+    margin-bottom: 10px;
+    color: #666;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+p {
+    color: rgba(244, 67, 54, 0.87);
+    background: rgba(244, 67, 54, 0.05);
+    padding: 5px;
+    margin-top: 0;
+    border-radius: 5px;
+    display: inline-block;
+    word-break: break-all;
+}
+
+h2 {
+    border-bottom: solid 1px #ddd;
+    padding: 10px 0;
+}

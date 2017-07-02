@@ -1,0 +1,27 @@
+{
+  "name": "workspace",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Arshad Khan",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "dotenv": "^2.0.0",
+    "express": "~4.14.0",
+    "express-session": "^1.14.2",
+    "jade": "~1.11.0",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.7.2",
+    "morgan": "~1.7.0",
+    "node-sass-middleware": "^0.10.0",
+    "passport": "^0.3.2",
+    "passport-twitter": "^1.0.4",
+    "querystring": "^0.2.0",
+    "request": "^2.79.0",
+    "serve-favicon": "~2.3.0"
+  }
+}

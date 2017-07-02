@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <header>
+            <% include ../partials/header %>
+        </header>
+        <main>
+            <div class="pollContainer container-fluid">
+                <% include ../partials/pollInfo %>
+                <% include ../partials/userControls %>
+                <% include ../partials/modal %>
+            </div>
+        </main>
+        <footer>
+            <% include ../partials/footer %>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+        <script>
+		    var data = {
+			    labels: <%- JSON.stringify(poll.options) %>,
+			    datasets: [
+			    {
+			        data: <%- JSON.stringify(poll.votes) %>,
+			        backgroundColor: <%- JSON.stringify(poll.colors) %>,
+			        hoverBorderColor: [
+			            "#eee","#eee","#eee"														
+			        ]
+			    }]
+			};
+			
+			var ctx = document.getElementById("myChart").getContext("2d");
+			
+			var myPieChart = new Chart(ctx, {
+			    type: 'pie',
+			    data: data,
+			    options: { 
+			        animation: {
+			        animateRotate: false,
+			        animateScale: false
+			        }, 
+			        elements: {
+			            arc: {
+			                borderColor: "#fff"
+			            }
+			        },
+			        legend: {
+			            display: true,
+			            position: "bottom",
+			            labels: {
+			                boxWidth: 25,
+			                fontStyle: "Normal",
+			                fontColor: "#999",
+			                fontSize: 13,
+			                fontFamily: "Source Sans Pro",
+			                fullWidth: true
+			            } 
+			        },
+			        tooltips: {
+			            bodyFontColor: "#999",
+			            bodyFontFamily: "Source Sans Pro",
+			            fontStyle: 'Normal',
+			            cornerRadius: 2,
+			            backgroundColor: "#fefefe",
+			            xPadding: 7,
+			            yPadding: 7,
+			        }
+			    }
+			});
+
+		</script>
+		<% if (pollMaker) {%>
+			<script src="/common/ajaxFunctions.js"></script>
+			<script src="/controllers/clickController.client.poll.js"></script>
+    	<% } %>
+    </body>
+</html>

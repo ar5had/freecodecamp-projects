@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Simon game[freecodecamp]</title>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="mainBody center">
+
+      <div class="button1 button" data-pos="1">
+      </div><!--
+      --><div class="button2 button" data-pos="2">
+      </div><!--
+      --><div class="button3 button" data-pos="3">
+      </div><!--
+      --><div class="button4 button" data-pos="4">
+      </div>
+
+    </div>
+    <div class="control center">
+      <div class="display"><h5 class="text-center"><span class="count"></span>
+       <span class="score"></span>
+      </h5></div>
+      <h4 class="text-center">
+        <span class="onOff cbtn">On</span>
+        <span class="start cbtn unclickable">Start</span>
+        <span class="strict cbtn unclickable">Strict</span>
+      </h4>
+    </div>
+    <audio id="audio" preload="auto">
+      <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg">
+    </audio>
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

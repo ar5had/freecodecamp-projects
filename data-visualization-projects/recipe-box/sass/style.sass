@@ -1,0 +1,250 @@
+html
+  font-size: 1px
+
+*
+  color: #222
+  word-spacing: 2rem
+
+body
+  overflow-x: hidden
+  background: #efece6
+  position: relative
+
+.container-fluid
+  background: url("http://arshdkhn1.github.io/images/bg-pro.png")
+  min-height: 100vh
+  z-index: -999
+  margin: 0 auto
+
+
+button, h3
+  font-family: 'Montserrat', sans-serif
+
+h3, h2, h4
+  margin: 10rem auto
+  word-wrap: break-word
+
+p, h4, label, input
+  font-family: 'Source Sans Pro', sans-serif
+
+.heading
+  text-transform: uppercase
+  font-size: 65rem
+  font-family: 'Cabin Sketch', cursive
+  font-weight: 900
+
+.row
+  margin: 50rem auto
+
+.buttonSect.row
+  display: -webkit-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  flex-wrap: wrap
+
+.buttonSect.row>[class*='col-*']
+  display: flex
+  flex-direction: column
+
+.addBtn
+  background: #fff
+  padding: 30rem 60rem
+  border: none
+  position: fixed
+  top: 50rem
+  right: -20rem
+  font-size: 14rem
+  color: #957029
+  z-index: 9999
+  outline: none
+  text-transform: uppercase
+
+
+.addBtn:hover
+  color: #222
+  cursor: pointer
+  right: 0
+
+.row .recipeHeader
+  background: #efece6
+
+
+.recipe > .recipeContent
+  display: none
+
+
+.row.recipe:hover
+  cursor: pointer
+
+.recipeName
+  color: #957029
+  font-size: 20rem
+
+.btn
+  position: absolute
+  right: 20rem
+  top: 26rem
+  font-size: 12rem
+  width: 30rem
+  z-index: 999
+
+.btn.editBtn
+  right: 60rem
+
+.btn:hover
+  color: #957029
+
+.row
+  max-width: 900rem
+  margin-left: auto
+  margin-right: auto
+
+.recipeContent
+  background: #fff
+
+.recipeHeader, .recipeContent
+  padding: 20rem 20rem
+
+h4
+  text-transform: uppercase
+  font-size: 14rem
+  font-weight: 700
+
+.ingredients, .addIngBtn
+  font-size: 14rem
+  text-transform: uppercase
+  font-weight: 700
+  border: none
+  padding: 15rem 15rem
+  border-radius: 40rem
+  margin: 10rem 15rem 20rem 0
+  font-family: 'Source Sans Pro', sans-serif
+  color: #957029
+  background: #efece6
+  outline: none
+
+.recipeHeader:hover
+  -moz-box-shadow: inset 0 0 5px rgba(0,0,0,.15)
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,.15)
+  box-shadow: inset 0 0 5px rgba(0,0,0,.15)
+
+.opened>.recipeHeader:hover
+  box-shadow: none
+
+.recipe.opened
+  transform: translate3d(0, -3%, 0)
+  box-shadow: 0rem 0rem 40rem 0rem rgba(0,0,0,0.12),0rem 6rem 12rem rgba(0,0,0,0.08)
+  .recipeHeader
+    z-index: 99
+
+.bs
+  box-shadow: 0rem 0rem 40rem 0rem rgba(0,0,0,0.12),0rem 6rem 12rem rgba(0,0,0,0.08),0rem 0rem 40rem 0rem rgba(0,0,0,0.12),0rem 6rem 12rem rgba(0,0,0,0.08)
+
+.ts
+  -webkit-transition: all 333ms cubic-bezier(0.215, 0.61, 0.355, 1)
+  -moz-transition: all 333ms cubic-bezier(0.215, 0.61, 0.355, 1)
+  -o-transition: all 333ms cubic-bezier(0.215, 0.61, 0.355, 1)
+  transition: all 333ms cubic-bezier(0.215, 0.61, 0.355, 1)
+
+@media only screen and (max-width: 700px)
+
+  html
+    font-size: .8px
+
+  .heading
+    font-size: 50rem
+
+  .addBtn
+    padding: 15px 30px
+
+@media only screen and (max-width: 600px)
+
+  html
+    font-size: .7px
+
+
+.opened > .recipeContent
+  display: block
+
+// styling for modal
+
+.recipeModal
+  z-index: 999999
+  background: #efece6
+  width: 80%
+  max-width: 650px
+
+.modalBackground
+  width: 100vw
+  height: 100vh
+  background: #F5F3EF
+  opacity: .8
+
+.modalBackground, .recipeModal
+  z-index: 9999
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+
+input
+  width: 100%
+  border: none
+  background: #e3ddd2
+  color: #957029
+  padding: 15px
+  font-size: 14px
+  outline: none
+  //   &::-webkit-input-placeholder
+  //     color:#957029
+
+  //   &::-moz-placeholder
+  //     color: #957029
+
+  //   &::-moz-placeholder
+  //     color: #957029
+
+  //   &::-ms-input-placeholder
+  //     color: #957029
+
+label
+  font-size: 13px
+  font-weight: 500
+  color: #222
+  text-transform: uppercase
+  font-weight: 700
+
+.nameSect, .ingredientsSect
+  margin: 30px auto 30px auto
+  padding-left: 20px
+  padding-right: 20px
+
+.saveBtn, .closeBtn
+  border: none
+  width: 50%
+  border: solid 2px #ccc1ac
+  border-bottom: none
+  border-left: none
+  padding: 15px 10px
+  color: #957029
+  text-transform: uppercase
+  font-size: 14px
+  background: #e3ddd2
+  position: relative
+  bottom: 0
+  outline: none
+
+.closeBtn
+  border-right: none
+
+.mainModal
+  opacity: 0
+
+.modalBody
+  overflow-y: auto
+
+.recipe
+  transition-property: box-shadow, transform
+  transition-duration: 444ms

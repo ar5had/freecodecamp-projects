@@ -1,0 +1,24 @@
+
+<div class="boxWrapper">
+    <div class="container box profileBox" >
+        <form action="/create-poll" method="post" id="pollForm" name="pollForm">
+        	<div class="col-xs-12 text-center marT10 marB30">
+        		<h2>Create a Poll</h2>
+        	</div>
+        	<div class="col-xs-12 text-center questionInputWrapper marB30">
+        		<input type="text" placeholder="Enter question" name="question" id="question" required="required"/>
+        	</div>
+        	<div class="col-xs-12 text-center optionInputWrapper marB30">
+        		<input type="text" placeholder="Enter options seperated by comma" name="options" id="options" required="required"/>
+        	</div>
+        	<div class="col-xs-12 text-center">
+        		<button class="saveBtn marT10 marB20" form="pollForm">Save Poll</button>
+        	</div>
+        </form>
+        <div class="col-xs-12 text-center">
+        		<a href="/">
+        			<button class="marB10 bthBtn">Back to Home</button>
+        		</a>
+        </div>
+    </div>
+</div>

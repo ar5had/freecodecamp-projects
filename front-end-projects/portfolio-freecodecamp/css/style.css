@@ -1,0 +1,310 @@
+*{
+  color: #222;
+}
+
+h3{
+  color: #aaa;
+  font-size: 20px;
+  margin: 0;
+  line-height: 28px;
+}
+
+h4{
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+p{
+  color: #666;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.wrapper{
+  padding: 50px 0;
+  max-width: 540px;
+  margin: auto;
+}
+
+.cus-container{
+  max-width: 540px;
+  margin: auto;
+}
+
+.icon{
+  width: 95px;
+  border-radius: 50%;
+}
+
+section{
+  padding-top: 100px;
+}
+
+#logoName, button{
+  font-family: 'Montserrat', sans-serif;
+}
+/* global and mixed styling ends */
+
+.nav{
+  height: 60px;
+  background: #fff;
+  position: fixed;
+  overflow: hidden;
+  z-index: 10000;
+  border-bottom: solid 1px #eee;
+  max-width: 540px;
+  padding: 0;
+}
+
+.navItems{
+  width: 20px;
+  height: 20px;
+  border: solid 1px #eee;
+  border-radius: 50%;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav > .col-xs-1_25{
+  padding-top: 20px;
+}
+
+.col-xs-1_25{
+  float: left;
+  width: 12.5%;
+}
+
+img.navIcons{
+  vertical-align: super;
+	width:20px !important;
+}
+
+img.navIcons:first-child{
+  border-radius: 50%;
+}
+/* nav styling ends */
+
+#logoName{
+  font-weight: 600;
+  font-size: 3.3em;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+}
+
+header{
+  padding-bottom: 30px;
+  border-bottom: solid 1px #eee;
+}
+
+.paraLinks{
+color: #5694f1;
+}
+
+.paraLinks:hover{
+  text-decoration: none;
+  color: #5694f1;
+}
+/* header styling ends */
+input, textarea{
+  border-radius: 0;
+  background: none;
+  border: 2px solid #aaa;
+  font-weight: 500;
+  margin-bottom:12px;
+}
+
+input{
+ height: 36px;
+}
+
+textarea{
+  height: 100px;
+  padding-top: 3px;
+}
+
+textarea, input{
+  min-width: 300px;
+  font-size: 16px;
+  color: #aaa;
+  padding-left: 10px;
+  padding-left: 10px;
+}
+
+::-webkit-input-placeholder {
+  color: #aaa;
+  font-size: 16px;
+  opacity: 1;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #aaa;
+  font-size: 16px;
+  opacity: 1;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: #aaa;
+  font-size: 16px;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #aaa;
+  font-size: 16px;
+  opacity: 1;
+}
+
+button.btn.btn-default{
+  border: solid 2px #F6C37A;
+  border-radius: 0;
+  text-transform: uppercase;
+  display: block;
+  color: #F6C37A;
+  -o-transition: color .4s;
+  -ms-transition: color .4s;
+  -moz-transition: color .4s;
+  -webkit-transition: color .4s;
+  transition: color .4s;
+  padding: 10px 15px;
+  font-weight: 500;
+}
+
+button.btn.btn-default:hover{
+  color: #fff;
+  background-color: #F6C37A;
+}
+
+.contact .col-xs-9>p{
+  padding-bottom: 20px;
+}
+/* contact form section styling ends */
+
+footer{
+  border-top: solid 1px #eee;
+}
+
+.social-icons{
+  height: 30px;
+  width: 30px;
+  margin: 0 2px;
+}
+
+.fa{
+   -o-transition: color .4s;
+  -ms-transition: color .4s;
+  -moz-transition: color .4s;
+  -webkit-transition: color .4s;
+  transition: color .4s;
+}
+
+.fa{
+  height: 24px;
+  width: 24px;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.fa-github{
+  color: #4183c4;
+}
+
+.si-github{
+ border: solid 2px #4183c4;
+  background-color: none;
+  -webkit-transition: background 1.5s;
+}
+
+.si-github:hover{
+  background-color: #4183c4;
+}
+
+.fa-linkedin{
+  color: #0976b4;
+}
+
+.si-linkedin{
+  border: solid 2px #0976b4;
+}
+
+.si-linkedin:hover{
+  background-color: #0976b4;
+}
+
+.fa-reddit-alien{
+  color: #dc4e41;
+}
+
+.si-reddit-alien{
+  border: solid 2px #dc4e41;
+}
+
+.si-reddit-alien:hover{
+  background-color: #dc4e41;
+}
+
+.fa-twitter{
+  color: #55acee;
+}
+
+.si-twitter{
+  border: solid 2px #55acee;
+}
+
+.si-twitter:hover{
+  background-color: #55acee;
+}
+
+.fa-envelope{
+  color: #222;
+  font-weight: 600;
+}
+
+.si-envelope{
+  border: solid 2px #222;
+}
+
+.si-envelope:hover{
+  background-color: #222;
+}
+
+.social-icons:hover > .fa{
+  color: white;
+}
+
+#social-network{
+  margin-top: 40px;
+}
+
+.small p{
+  font-size: 15px;
+}
+
+footer p:last-child{
+  margin-top: 20px;
+  color: #aaa;
+}
+/* footer styling ends */
+
+@media screen and (max-width: 640px) {
+    #logoName{
+        font-size: 2.3em;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+  .icon{
+    width: 70px;
+  }
+  #logoIcon{
+    width: 80px;
+  }
+
+  textarea, input{
+    min-width: 209px;
+  }
+
+}
+/* media querry ends */

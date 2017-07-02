@@ -1,0 +1,62 @@
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
+body{
+  color: #fff;
+  line-height: 3rem;
+}
+
+blockquote{
+  font-style: italic;
+  line-height: 3rem;
+  word-spacing: 2px;
+  color: #aaa;
+  border-color: #aaa;
+}
+
+h2{
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+p{
+  font-size: 1.5rem;
+  word-spacing: 2px;
+}
+
+body{
+  background: url("http://s32.postimg.org/j93l9kbwl/JO_D_130210_Aaron_Swartz.jpg") fixed no-repeat;
+  background-size: 100% 100vh;
+  height:100vh;
+}
+
+.btn:hover{
+  background-color: #fff;
+  color: black;
+  border: none;
+  border: black 1px solid;
+}
+
+.btn{
+  text-transform: uppercase;
+  border-radius: 0;
+  color: #fff;
+  background: none;
+  border: white 1px solid;
+  margin: 3rem 0;
+  font-weight: 500;
+}
+
+footer{
+  margin-bottom: 3rem;
+}
+
+footer a{
+  color: #999;
+}
+
+footer a:hover{
+  color: #ccc;
+  text-decoration: none;
+}

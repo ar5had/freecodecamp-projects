@@ -1,0 +1,26 @@
+{
+  "name": "file-metadata-microservice",
+  "version": "1.0.0",
+  "description": "Microservice for metadata of form-data object",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arshdkhn1/file-metadata-microservice.git"
+  },
+  "author": "Arshad Khan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arshdkhn1/file-metadata-microservice/issues"
+  },
+  "homepage": "https://github.com/arshdkhn1/file-metadata-microservice#readme",
+  "dependencies": {
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "multer": "^1.2.0",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.3.0"
+  }
+}

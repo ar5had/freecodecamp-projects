@@ -1,0 +1,35 @@
+@import '../../styles/variables.sass'
+
+.item
+  flex: 0 1 48%
+  align-items: stretch
+  transition: opacity .3s, filter .3s
+  cursor: pointer
+  &:hover
+    cursor: pointer
+    opacity: .8
+  &:empty
+    height: 0
+  .itemName
+    margin-top: .7rem
+    overflow: hidden
+    color: $black
+    font-size: .9rem
+    display: inline-block
+  .itemCost
+    color: lighten($black, 20%)
+    font-size: 1rem
+    margin: 0 0 1.5rem 0
+    line-height: 1
+    letter-spacing: 1px
+    font-weight: 500
+    font-size: .9rem
+    display: inline-block
+  .content
+    background-image: url('../../assets/images/plain.png')
+    cursor: pointer
+    padding-bottom: 100%
+    transition: background-image .2s
+  .content, .itemCost, .itemName
+    &, &:hover
+      cursor: pointer

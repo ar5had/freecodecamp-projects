@@ -1,0 +1,39 @@
+header
+    .container-fluid
+      .container
+        .row
+          if(results !== undefined)
+            .search
+              .formsWrapper
+                form#searchForm.text-center(action="/results", method="get", name="searchForm", autocomplete="off")
+                  .searchBarWrapper
+                    input(type="text", placeholder="Enter your location...", required="required", name="search").searchBar#searchBar
+                
+                form(method="get", action="/results" name="locateMeForm")#locateMeForm
+                  input(type="hidden", name="loc" value="true")
+                  a().locateMe.myTooltip
+                    i.material-icons  gps_fixed  
+                      .main Locate Me
+                      .tail 
+                      
+          .logoWrapper.col-xs-6.text-left
+              a(href="/")
+                h3.logo foodiebay
+          .buttonWrapper.col-xs-6.text-right
+            if (user == undefined)
+              if (results !== undefined)
+                i.searchBtn.material-icons search
+              i.userAccBtn.material-icons perm_identity
+              a(href='/auth/twitter')
+                button.login
+                  // img(src='https://raw.githubusercontent.com/arshdkhn1/nightlife-coordination-app/master/public/images/twitter.png')
+                  | Log In
+            else
+              if (results !== undefined)
+                i.searchBtn.material-icons search
+              i.userAccBtn.material-icons perm_identity            
+              a(href='/logout')
+                button
+                  =user.name.split(" ")[0]
+                  span.divider |
+                  | Log Out   

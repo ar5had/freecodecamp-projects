@@ -1,0 +1,180 @@
+html{
+  font-size: 1px;
+}
+
+.warning-sign{
+  font-size:100rem;
+  color: yellow;
+}
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1rem;
+  padding: 20rem;
+  min-height: 100vh;
+  background: #EDEFF2;
+}
+
+.container{
+  border-radius: 10rem;
+  background: #F37262;
+  max-width: 320rem;
+  margin: 5% auto;
+  box-shadow: 0rem 30rem 30rem rgba(46, 61, 73, 0.22);
+  -webkit-transition: background .5s ease-out 1s;
+  -moz-transition: background .5s ease-out 1s;
+  -o-transition: background .5s ease-out 1s;
+  transition: background .5s ease-out 1s;
+
+}
+
+i{
+  font-size: 150rem;
+  margin: 30rem auto;
+  color: #fff;
+}
+
+.name{
+  font-weight: 700;
+  font-size: 20rem;
+}
+
+h3{
+  color: #fff;
+  font-size: 16rem;
+  margin: 0;
+  line-height: 4;
+}
+
+.details{
+  min-height: 280rem;
+}
+
+#icon{
+  margin: 60rem auto;
+}
+
+.convert{
+  cursor: pointer;
+}
+
+.off{
+  color: rgba(255,255,255,.6);
+}
+
+#textData{
+  padding: 10rem 0;
+  background: #fff;
+  border-radius:  0 0 10rem 10rem;
+
+}
+
+#textData .col-xs-12{
+  padding-left: 20rem;
+  padding-right: 20rem;
+}
+
+#textData .col-xs-6{
+  padding: 0;
+
+}
+
+#textData h3{
+  color: #333;
+}
+
+#textData .col-xs-12 .col-xs-6:last-child h3{
+  color: #666;
+}
+
+#textData .col-xs-12:last-child .col-xs-6{
+  border-top: #eee 1rem solid;
+}
+
+.bl, .sl{
+  margin: 0 15rem;
+  min-width: 30rem;
+  display: inline-block;
+  text-align: center;
+}
+
+span{
+  font-weight: 700;
+}
+
+.inc, .dec{
+  cursor: pointer;
+}
+
+.session p{
+  color: #fff;
+  font-size: 35rem;
+  font-weight: 500;
+}
+
+.session > p:last-child{
+  font-size: 30rem;
+}
+
+*{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.circ{
+  background: #F37262;
+  border: solid #fff 5rem;
+  height: 160rem;
+  width: 160rem;
+  display: inline-block;
+  border-radius: 100%;
+}
+
+.session:hover{
+  cursor: pointer;
+}
+
+.centre{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.glyphicon{
+  color: #fff;
+  font-size: 18rem;
+  cursor: pointer;
+  position: absolute;
+  top: 24rem;
+  right: 15rem;
+}
+
+@media screen and (max-width: 400px) {
+  html {
+    font-size: .7px;
+  }
+}
+/** animation stuff starts here **/
+
+h4{
+  color: #fff;
+  font-size: 20rem;
+  margin-top: 20rem;
+  font-weight: 500 !important;
+};
+
+.secondStick{
+  width: 6rem;
+  height: 140rem;
+  background: #666;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-bottom: 6px red solid;
+  transform: translate(-50%,-50%);
+}

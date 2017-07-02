@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>File Metadata Microservice</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles.css" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway" rel="stylesheet">
+    </head>
+    <body>
+        <h2 class="textcenter">Submit a file to view its filesize.</h2>
+        <div class="center">
+            <div>
+                <form action="/" method="post" enctype="multipart/form-data">
+                    <input name="uploadedFile" type="file" id="fileInput" accept="*"/>
+                    <label for="fileInput"><span>Choose a file</span><img src="./upload.png" alt="..."/></label>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="/fileInput.js"></script>
+    <body>
+</html>

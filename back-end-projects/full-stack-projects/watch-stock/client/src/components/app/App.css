@@ -1,0 +1,131 @@
+/*for bootstrap-grid*/
+
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', monospace;
+    outline: 1px solid transparent;
+    word-spacing: 2px;
+}
+
+html, body, #root, .wrapper {
+    height: 100%;
+}
+
+body {
+    background: #242128;
+    margin: 0;
+    color: #fefefe;
+    position: relative;
+    overflow-x: hidden;
+    transition-property: transform;
+    transition-duration: .4s;
+    transition-timing-function: ease;
+    position: relative;
+    overflow-y: auto;
+    height: 100%;
+}
+
+button, h2, h3, input[type="submit"] {
+  text-transform: uppercase !important;
+  font-weight: bold;
+}
+
+body.is-active {
+    transform: translateX(-260px);
+}
+
+.wrapper {
+    position: absolute;
+    width: 100%;
+}
+
+.marB {
+    margin-bottom: 20px;
+}
+
+.row {
+    margin: 0;
+}
+
+.bodyWrapper {
+    box-sizing: content-box;
+    margin: 20px;
+    box-sizing: content-box !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+    background: #2b2833;
+    height: calc(100% - 102px);
+    position: relative;
+}
+
+.loader {
+    border: 2px solid #aaa;
+    border-top: 2px solid #2b2833;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
+
+.main-loader {
+    position: fixed;
+    top: calc(50% + 20px);
+    left: calc(50% - 20px);
+    border: 5px solid #888;
+    border-top: 5px solid #efefef;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: auto;
+    z-index: 999;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .bodyWrapper {
+        margin: 15px;
+    }
+    #header, #panel {
+        padding: 0 15px;
+    }
+    form, .messageArea {
+        margin-bottom: 15px;
+    }
+    #graph {
+        padding: 15px 8px 10px 8px;
+    }
+    .noStockContent>img {
+        height: 70px;
+        margin-bottom: 15px;
+    }
+    .noStockContent>h2 {
+        font-size: 20px;
+    }
+    .marB {
+        margin-bottom: 15px;
+    }
+    #logo {
+      font-size: 18px;
+    }
+    .hide-sm {
+      display: none;
+    }
+    .notificationBox > * {
+      font-size: 13px;
+    }
+}
+
+@media (orientation: landscape) {
+    .wrapper, #panel {
+      min-height: 400px;
+    }
+}

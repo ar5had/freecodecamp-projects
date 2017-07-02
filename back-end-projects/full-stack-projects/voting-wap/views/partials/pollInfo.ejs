@@ -1,0 +1,32 @@
+<div class="col-sm-7 col-xs-12 vleft boxWrapper pollInfoWrapper">
+	<div class="box">
+		<div class="pollInfo">
+			<div class="col-xs-12 heading marB20">
+				<h3>
+					<%= poll.question %>
+				</h3>
+			</div>
+			<div class="pull-left">
+				<button class="votesCount showBtn">
+					 <%= poll.votes.reduce(function(total, next) { return total + next; }) %> Votes
+				</button>
+				<button class="viewsCount showBtn">
+					<%= poll.views %> Views
+				</button>
+			</div>
+			<div class="pull-right">
+				<p class="author text-right"> 
+					<span class="authorName">
+						<%= poll.author %>
+					</span>
+				</p>
+				<p class="date text-right">
+					<%= poll.createdAt %>
+				</p>
+			</div>
+		</div>
+		<div class="col-xs-12 chartWrapper">	
+			<canvas id="myChart"></canvas>
+		</div>
+	</div>
+</div>

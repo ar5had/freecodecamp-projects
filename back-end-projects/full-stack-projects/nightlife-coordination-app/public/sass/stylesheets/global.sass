@@ -1,0 +1,175 @@
+$white         : rgb(254, 254, 254)
+$faded-white   : rgba($white, .2)
+$green         : #159957
+$blue          : #155799
+$black         : #333
+$other-grey    : #4e595d
+$border-color  : #c7cdcf
+$dark-grey     : #666
+$grey          : #888
+$min-width     : 550px
+
+=transition($property, $time)
+	-webkit-transition: $property $time ease-out 100ms
+	-moz-transition: $property $time ease-out 100ms
+	-o-transition: $property $time ease-out 100ms
+	transition: $property $time ease-out 100ms
+
+=transitionA($property, $time, $delay)
+	-webkit-transition: $property $time ease-out $delay
+	-moz-transition: $property $time ease-out $delay
+	-o-transition: $property $time ease-out $delay
+	transition: $property $time ease-out $delay
+
+=boxShadow($a, $b, $c)
+	-webkit-box-shadow: $a, $b, $c
+	-moz-box-shadow: $a, $b, $c
+	box-shadow: $a, $b, $c
+
+=bkdSize($val)
+	-ms-background-size: $val
+	-o-background-size: $val
+	-moz-background-size: $val
+	-webkit-background-size: $val
+	background-size: $val
+
+=borderRadius($rad)
+	-webkit-border-radius: $rad
+	-moz-border-radius: $rad
+	border-radius: $rad
+
+* 
+	font-family: Source Sans Pro, Helvetica Neue, Helvetica, sans-serif
+
+html 
+	font-size: 1px
+
+\::-webkit-input-placeholder
+	color: $grey
+
+\:-moz-placeholder
+	color: $grey
+
+\::-moz-placeholder
+	color: $grey
+
+\:-ms-input-placeholder
+	color: $grey
+
+
+.marB10
+	margin-bottom: 10px
+
+.marB30
+	margin-bottom: 30px
+
+.marB20
+	margin-bottom: 20px
+	
+.marT10
+	margin-top: 10px
+
+.marT30
+	margin-top: 30px
+
+.marT20
+	margin-top: 20px
+
+body
+	overflow: hidden
+	
+#hideAll
+    position: fixed
+    opacity: 1
+    left: 0px 
+    right: 0px 
+    top: 0px
+    bottom: 0px 
+    background-color: #fefefe
+    z-index: 123
+    +transition(opacity, 150ms)
+	
+.divider
+	margin: auto 8px
+	border-color: rgba($other-grey, .8)
+	font-weight: 900
+	font-size: 12px
+	vertical-align: text-top
+	
+.container
+	max-width: 920px
+	
+header
+	position: fixed
+	width: 100%
+	z-index: 2
+	padding: 15px 0
+	background-color: #159957
+	background-image: linear-gradient(130deg, $green, $blue)
+	top: 0
+	width: 100%
+	z-index: 100
+
+a 
+	text-decoration: none !important
+	&:hover, &:active
+	text-decoration: none !important
+	
+
+.formsWrapper		
+	position: relative
+		
+#locateMeForm
+	display: inline-block
+	position: absolute
+	top: 50%
+	right: 10px
+	line-height: 1
+	transform: translateY(-50%)
+
+.locateMe
+	i
+		color: $grey
+		font-size: 18px
+		vertical-align: sub
+	padding: 8px 6px 6px 6px
+	+borderRadius(4px)
+	line-height: 1
+	+transition(100ms,background)
+	cursor: pointer
+	&:hover, &:active
+		i
+			color: $dark-grey
+		background: #efefef
+
+
+.myTooltip
+	&:hover
+		.main, .tail
+			visibility: visible
+	position: relative
+	
+	.main
+		+transition(100ms, all)
+		visibility: hidden
+		position: absolute
+		top: -38px
+		right: 13px
+		background: #5c89b7
+		color: $white
+		white-space: nowrap
+		padding: 6px
+		font-size: 15px
+	
+	.tail
+		+transition(100ms, all)
+		visibility: hidden
+		position: absolute
+		border-color: #5c89b7 transparent transparent 
+		border-style: solid
+		border-width: 10px 0 0 10px
+		height: 0
+		top: -13px
+		right: 13px
+		width: 0
+		z-index: 11

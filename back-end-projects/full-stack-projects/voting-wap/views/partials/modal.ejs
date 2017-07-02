@@ -1,0 +1,36 @@
+<div class="modalWrapper">
+	<div class="modalBox">
+		<div class="col-xs-12 marB10">
+			<% if (page === "pollPage") { %>
+				<h4>Add Options</h4>
+			<% } else {%>
+				<h4>Delete my profile</h4>
+			<% } %>
+		</div>
+		<% if (page === "pollPage") { %>
+			<form action="/polls/add-options/<%= poll.secret %>" method="post" name="newOptForm" id="newOptForm">
+				<div class="col-xs-12 text-center optionInputWrapper marB30 marT10">
+	        		<input type="text" placeholder="Enter new options seperated by comma" name="options" id="options" required="required"/>
+	        	</div>
+				<div class="col-xs-12 text-center marB20">
+					<button id="addNewOptionsBtn" form="newOptForm">ADD</button>
+				</div>
+			</form>
+			<div class="col-xs-12 text-center">				
+				<button id="closeModalBtn"  class="closeModalBtn">Cancel</button>
+			</div>
+		
+		<% } else {%>
+			<div class="col-xs-12 marB10">
+				<p>Deleting profile can't be undone. Your polls will not be automatically deleted along with your profile.</p>
+			</div>
+			<div class="col-xs-12 text-center marB20">
+				<button id="deleteAccBtnFinal">Continue</button>
+			</div>
+			<div class="col-xs-12 text-center">				
+			    <button id="closeModalBtn" class="closeModalBtn">Cancel</button>
+			</div>
+		<% } %>
+	</div>
+</div>
+<div id="bkdHider" class="bkdHider"></div>

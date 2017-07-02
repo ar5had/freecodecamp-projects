@@ -1,0 +1,18 @@
+extends ../layouts/resultsLayout
+
+block content
+  include ../components/header
+  
+  if (results !== null)
+    main
+      .container
+        h3.resultsInfoHeading 
+          | Food suggestions near 
+          strong #{results[0].reqLocation}
+        include ../components/results
+  else 
+    include ../components/noResults
+    
+  include ../components/footer
+  
+  script(src="/javascripts/resultsPage.js")

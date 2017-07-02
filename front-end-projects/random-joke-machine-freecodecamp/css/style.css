@@ -1,0 +1,85 @@
+html{
+  font-size: 15px;
+}
+
+body{
+  min-height: 100vh;
+  background: url("../images/chuck.jpg");
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat;
+}
+
+.filter{
+  background: rgba(0, 0, 0, 0.55);
+  min-height: 100vh;
+}
+
+#mainBody{
+  font-size: 20px;
+  max-width: 720px;
+  margin:auto;
+  padding: 50px;
+}
+
+#quotesBlock{
+  margin: auto;
+  min-height: 10rem;
+}
+
+#quote{
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+}
+
+#next, #tweet{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  letter-spacing:2px;
+  background: none;
+  border: 2px solid #E5CA32;
+  padding: 1rem 2rem ;
+  margin: 2rem auto;
+  color: #E5CA32;
+  text-transform: uppercase;
+  font-size: .7rem;
+  -webkit-transition: color .4s ease-out;
+  -moz-transition: color .4s ease-out;
+  -o-transition: color .4s ease-out;
+  transition: color .4s ease-out;
+  -webkit-transition: border-color .4s ease-out;
+  -moz-transition: border-color .4s ease-out;
+  -o-transition: border-color .4s ease-out;
+  transition: border-color .4s ease-out;
+}
+
+#next:hover{
+  color: #FFD700;
+  border-color: #FFD700;
+}
+
+#tweet{
+  color: #31b7e0;
+  border-color: #31b7e0;
+}
+
+#tweet:hover{
+  color: #1dcaff;
+  border-color: #1dcaff;
+}
+/* media queries starts */
+ @media screen and (max-width: 600px) {
+   html{
+     font-size: 14px;
+   }
+   #mainBody{
+     padding: 20px;
+   }
+   #quote{
+     line-height: 1.4;
+     font-size: 1.7rem;
+   }
+}

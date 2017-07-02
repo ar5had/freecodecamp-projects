@@ -1,0 +1,39 @@
+{
+  "name": "polling-app",
+  "version": "1.0.1",
+  "description": "Full stack JavaScript Polling App.",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arshdkhn1/polling-app"
+  },
+  "keywords": [
+    "MongoDB",
+    "Mongoose",
+    "full stack",
+    "Express",
+    "Node",
+    "javascript",
+    "polling app",
+    "voting app"
+  ],
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Arshad Khan",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "dotenv": "^1.2.0",
+    "ejs": "^2.5.2",
+    "express": "^4.12.4",
+    "express-session": "^1.11.3",
+    "mongoose": "^4.1.0",
+    "passport": "^0.3.0",
+    "passport-facebook": "^2.1.1",
+    "passport-github": "^1.0.0",
+    "passport-google-oauth": "^1.0.0",
+    "passport-twitter": "^1.0.4",
+    "randomcolor": "^0.4.4"
+  }
+}

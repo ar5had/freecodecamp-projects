@@ -1,0 +1,83 @@
+*
+  font-family: 'Open Sans', sans-serif
+
+html
+  font-size: 1px
+
+.heading
+  font-weight: 600
+  color: #060
+  padding-bottom: 15rem
+  font-size: 25rem
+  font-family: 'Fauna One', serif
+
+
+.container
+  margin-top: 30rem
+  margin-bottom: 30rem
+  max-width: 800rem
+  padding-left: 25rem
+  padding-right: 25rem
+
+.row
+  margin-top: 20rem
+  margin-bottom: 20rem
+  border-bottom: solid 2rem #eee
+  border-left: solid 2rem #eee
+  border-right: solid 2rem #eee
+
+.userImg
+  width: 50rem
+  border-radius: 50%
+  margin-right: 10rem
+
+p
+  margin: 34px auto 17px auto
+  font-size: 16rem
+  color: #555
+  font-weight: 700
+
+.campers p
+  margin: 22px auto 17px auto
+
+.category .userImg
+  display: none
+
+
+.category p
+  margin: 34px auto
+  font-weight: 700
+  color: #999
+  font-size: 16rem
+
+
+@media screen and (max-width: 600px)
+  html
+    font-size: .8px
+
+@media screen and (max-width: 500px)
+  html
+    font-size: .7px
+
+@media screen and (max-width: 500px)
+  html
+    font-size: .6px
+  .col-xs-3, .col-xs-5, .col-xs-1
+    padding: 0
+  .col-xs-5
+    padding-left: 8px
+  img
+    display: block
+  .container
+    padding-left: 10px
+    padding-right: 10px
+  .row
+    border-left: none
+    border-right: none
+    margin: 0
+
+.category.active > p
+  color: #d2d071
+
+.category.recentPoints, .category.allTimePoints
+  cursor: pointer

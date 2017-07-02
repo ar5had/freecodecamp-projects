@@ -1,0 +1,121 @@
+@import '../../styles/variables.sass'
+
+.uIWrapper
+  transition: opacity .15s, margin .3s
+  margin: 0 0 3rem 0
+  .removeBtnWrapper.open
+    transform: translateX(0)
+    div
+      z-index: 1
+      opacity: 1
+      visibility: visible
+    .deleteBtn
+      opacity: 0
+      visibility: hidden
+      z-index: -9999
+  .removeBtnWrapper
+    transition: transform .3s
+    transform: translateX(-267px)
+    min-width: 410px
+    div
+      z-index: -9999
+      opacity: 0
+      visibility: hidden
+      transition: opacity .2s, visibility .3s
+      display: flex
+      align-items: center
+      p
+        font-weight: 500
+        margin-right: 5px
+      button
+        margin-left: 1rem
+        color: #fcfcfc
+        padding: .5rem 1.5rem
+        background: $black
+        border: solid 2px $black
+        &:last-child
+          color: $black
+          background: transparent
+          border: solid 2px $black
+  .itemCost
+    color: lighten($black, 20%)
+    font-size: 1.2rem
+    margin: .7rem 0
+    font-weight: 500
+  .addDate
+    margin: .5rem 0
+    font-weight: 500
+    color: $grey
+    letter-spacing: 1px
+  .itemDescription
+    margin: .5rem 0 1.5rem 0
+  .itemTags
+    margin-bottom: 3rem
+    font-weight: 700
+    font-size: 1rem
+    .tags
+      padding: .5rem 1rem
+      border-radius: 30px
+      color: $black
+      border: solid 2px
+      font-family: roboto
+      display: inline-block
+      margin: 1rem 1rem 0 0
+      &:first-child
+        margin-left: 1rem
+  .upper
+    margin: 0 0 1rem 0
+    display: flex
+    flex-direction: column
+  .userImg
+    flex: 0 0 10rem
+    height: 10rem
+    width: 10rem
+    background-image: url('../../assets/images/plain.png')
+    border-radius: 0
+    margin: 1.5rem auto
+    transition: opacity .2s, background-image .2s
+    &:hover
+      opacity: .8
+  .lower
+    display: flex
+  h3.itemName
+    line-height: 1.2
+    font-size: 1.2rem
+    letter-spacing: 2px
+    a
+      transition: none
+      color: inherit
+      font-size: inherit
+      border-bottom: solid 2px transparent
+      &:hover
+        border-bottom: solid 2px
+  a
+    font-size: .9rem
+    font-weight: 500
+    color: $grey
+    cursor: pointer
+    transition: all .3s
+    &:hover
+      color: $black
+      cursor: pointer
+  button
+    font-size: .8rem
+    font-weight: 600
+    text-transform: uppercase
+    padding: .5rem 1rem
+    cursor: pointer
+    &:hover
+      opacity: .8
+  .deleteBtn
+    background: $black
+    color: #fff
+    z-index: 1
+    transition: opacity .2s, visibility .3s
+    border: solid 2px $black
+  .editBtn
+    margin-left: 1rem
+    background: none
+    border: solid 2px
+    &:hover
+      opacity: .7

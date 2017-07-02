@@ -1,0 +1,182 @@
+@import './fonts.sass'
+@import './mediaqueries.sass'
+@import './variables.sass'
+
+// http://meyerweb.com/eric/tools/css/reset/
+// v2.0 | 20110126
+// License: none (public domain)
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
+
+// HTML5 display-role reset for older browsers
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+  display: block
+
+body
+  line-height: 1
+  overflow: auto
+
+ol, ul
+  list-style: none
+
+blockquote, q
+  quotes: none
+
+blockquote
+  &:before, &:after
+    content: ''
+    content: none
+
+q
+  &:before, &:after
+    content: ''
+    content: none
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+// Global styles starts
+
+html
+  font-size: 14px
+
+body
+  background: $background-color
+  min-height: calc(100vh + 2px)
+
+*, p, h4, h5, h6, a
+  font-size: 1rem
+  font-family: 'Open Sans', helvetica, sans-serif
+  line-height: 2
+  text-decoration: none
+  outline: none
+  word-break: break-word
+
+
+h1, h2, h3
+  text-transform: uppercase
+  line-height: 1.5
+  font-family: 'Permanent Marker', helvetica, sans-serif
+  font-weight: normal
+  word-spacing: 2px
+  letter-spacing: 2px
+
+h1
+  font-size: 1.5rem
+
+h2
+  font-size: 1.5rem
+  font-weight: 400
+
+h3
+  font-size: 1.2rem
+
+h4
+  font-size: 1.2rem
+  font-weight: 400
+
+h5
+  font-size: 1.2rem
+  font-family: 'Open Sans', helvetica, sans-serif
+
+h6
+  font-size: 1rem
+  font-weight: 800
+  text-transform: uppercase
+
+p
+  font-weight: 400
+
+.osf
+  font-family: 'Open Sans', helvetica, sans-serif
+
+.pmf
+  font-family: 'Permanent Marker', helvetica, sans-serif
+  letter-spacing: 2px
+  word-spacing: 2px
+  text-transform: uppercase !important
+
+.marB10
+  margin-bottom: 10px
+
+.marT10
+  margin-top: 10px
+
+.marB20
+  margin-bottom: 20px
+
+.marT20
+  margin-top: 20px
+
+.text-center
+  text-align: center
+
+.text-left
+  text-align: left
+
+.text-right
+  text-align: right
+
+.normal
+  text-transform: none
+  font-size: 1rem
+button
+  outline: none
+  border: none
+  border-radius: 0
+  &:focus, &:active
+    outline: none
+  &::-moz-focus-inner
+    border: 0
+
+.unCap
+  text-transform: none
+
+a
+  white-space: nowrap
+  cursor: pointer
+  outline: none
+  &:active, &:focus
+    outline: none
+
+input
+  outline: none
+  box-sizing: border-box
+  width: 100%
+  &:invalid
+    box-shadow: none
+
+.modal-opened
+  overflow: hidden
+
+.scrollbar-measure
+  width: 100px !important
+  height: 100px !important
+  overflow-y: scroll
+  position: absolute
+  top: -9999px
+
+.noItemHeadingWrapper
+  display: flex
+  flex-wrap: wrap
+  min-height: 30vh
+  align-items: center
+  justify-content: center
+
+
+.noItemHeading
+  font-size: 1rem
+  font-family: 'Permanent Marker'
+  margin-top: 20px
+  color: lighten($blue, 20%)
+
+.tobedeleted
+  opacity: .6

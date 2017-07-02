@@ -1,0 +1,40 @@
+<div class="sidebarWrapper">
+    <div class="col-xs-12 sidebar">
+        <a href="/" class="allPolls">
+            <div class="sLinks col-xs-12">
+                All Polls
+            </div>
+        </a>
+        <a href="/create-poll" class="createPollNav">
+            <div class="sLinks col-xs-12">
+                Create Poll
+            </div>
+        </a>
+        <div class="col-xs-12 borderWrapper"><div class="borderElem col-xs-12"></div></div>
+        
+        <%if (!userLoggedIn) { %>
+            <a href="/login" class="loginLink">
+                <div class="sLinks col-xs-12">
+                    Log In
+                </div>
+            </a>
+        <% } %>
+        
+        <%if (userLoggedIn) { %>
+            <a href="/profile" class="profileLink">
+                <div class="sLinks col-xs-12">
+                    Profile <%= name %>
+                </div>
+            </a>
+            <a href="/my-polls" class="myPolls">
+                <div class="sLinks col-xs-12">
+                    My Polls
+                </div>
+            </a>
+            <div class="col-xs-12 borderWrapper"><div class="borderElem col-xs-12"></div></div>
+            <div class="sLinks col-xs-12 logout">
+                    Log Out
+            </div>
+        <% } %>
+    </div>
+</div>

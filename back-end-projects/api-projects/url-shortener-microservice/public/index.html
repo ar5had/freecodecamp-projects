@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>URL Shortener Microservice</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles.css" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Cormorant+Garamond" rel="stylesheet">
+    </head>
+    <body>
+        <h1>URL Shortener Microservice</h1>
+        <h4>User Stories:</h4>
+        <ul>
+            <li>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</li>
+            <li>If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</li>
+            <li>When I visit that shortened URL, it will redirect me to my original link.</li>
+        </ul>
+        <h4>Example usage:</h4>
+        <p>https://shorten-that.herokuapp.com/shorten/http://iamarshad.com</p>
+        <h4>Example output:</h4>
+        <p>{"original_url":"http://iamarshad.com","short_url":"https://url-shortener-microservicee.herokuapp.com/7027"}</p>
+        <h4>Usage:</h4>
+        <p>https://shorten-that.herokuapp.com/7027</p>
+        <h4>Will redirect to:</h4>
+        <p>http://iamarshad.com</p>
+    </body>
+</html>

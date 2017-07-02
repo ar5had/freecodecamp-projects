@@ -1,0 +1,508 @@
+$white         : rgb(254, 254, 254)
+$faded-white   : rgba($white, .2)
+$green         : #159957
+$blue          : #155799
+$black         : #333
+$other-grey    : #4e595d
+$border-color  : #c7cdcf
+$dark-grey     : #666
+$grey          : #888
+$min-width     : 550px
+
+=transition($property, $time, $delay)
+	-webkit-transition: $property $time ease-out $delay
+	-moz-transition: $property $time ease-out $delay
+	-o-transition: $property $time ease-out $delay
+	transition: $property $time ease-out $delay
+
+=bkdSize($val)
+	-ms-background-size: $val
+	-o-background-size: $val
+	-moz-background-size: $val
+	-webkit-background-size: $val
+	background-size: $val
+
+=borderRadius($rad)
+	-webkit-border-radius: $rad
+	-moz-border-radius: $rad
+	border-radius: $rad
+
+=boxShadow($a, $b, $c)
+	-webkit-box-shadow: $a, $b, $c
+	-moz-box-shadow: $a, $b, $c
+	box-shadow: $a, $b, $c
+
+* 
+	font-family: Source Sans Pro, Helvetica Neue, Helvetica, sans-serif
+
+
+body
+	overflow: hidden
+
+.container-fluid
+	padding: 0
+	.container
+		.row
+			margin: 0 
+	
+#hideAll
+    position: fixed
+    opacity: 1
+    left: 0px 
+    right: 0px 
+    top: 0px
+    bottom: 0px 
+    background-color: #fefefe
+    z-index: 123
+    +transition(opacity, 250ms, 0ms)
+	
+.noResults
+	line-height: 80vh
+	color: $other-grey
+	text-align: center
+	font-size: 25px
+	border-bottom: solid 1px $border-color
+	
+html 
+	font-size: 1px
+
+=setPlaceholderColor($color)
+	&::-webkit-input-placeholder
+		color: $color
+
+	&:-moz-placeholder
+		color: $color
+
+	&::-moz-placeholder
+		color: $color
+
+	&:-ms-input-placeholder
+		color: $color
+		
+.divider
+	margin: auto 8px
+	font-weight: 900
+	font-size: 12px
+	
+.container
+	max-width: 920px
+	
+
+header
+	position: fixed
+	width: 100%
+	z-index: 2
+	padding: 15px 0
+	background-color: #159957
+	background-image: linear-gradient(130deg, #159957, #155799)
+	
+header
+	position: fixed
+	width: 100%
+	z-index: 2
+	padding: 15px 0
+	background-color: #159957
+	background-image: linear-gradient(130deg, $green, $blue)
+	top: 0
+	width: 100%
+	z-index: 100
+
+a 
+	text-decoration: none !important
+	&:hover, &:active
+		text-decoration: none !important
+
+a 
+	text-decoration: none !important
+	&:hover, &:active
+		text-decoration: none !important
+
+button.login
+	img
+		width: 12px
+		margin-right: 5px
+		padding-bottom: 2px
+
+h3.logo
+	color: $white
+	font-weight: 700
+	font-size: 28px
+	margin: 5px
+	display: inline-block
+
+.logoWrapper, .buttonWrapper
+	padding: 0
+	
+button
+	background: transparent
+	border: solid 3px rgba($white, .3)
+	color: $white
+	font-weight: 600
+	+borderRadius(4px)
+	padding: 8px 15px
+	outline: none
+	+transition(all, 70ms, 0ms)
+	&:hover
+		border-color: rgba($white, .7)
+		background: rgba($white, .1)
+
+.formsWrapper		
+	position: relative
+		
+#locateMeForm
+	display: inline-block
+	position: absolute
+	top: 50%
+	right: 10px
+	line-height: 1
+	transform: translateY(-50%)
+
+.locateMe
+	i
+		color: $grey
+		font-size: 18px
+		vertical-align: sub
+	padding: 8px 6px 6px 6px
+	+borderRadius(4px)
+	line-height: 1
+	+transition(100ms,background, 0ms)
+	cursor: pointer
+	&:hover, &:active
+		i
+			color: $dark-grey
+		background: #efefef
+	
+.myTooltip
+	position: relative
+	.main
+		visibility: hidden
+		+transition(100ms, all, 0ms)
+		position: absolute
+		
+		bottom: -38px
+		
+		right: 13px
+		background: #5c89b7
+		color: $white
+		white-space: nowrap
+		padding: 6px
+		font-size: 13px
+	
+	.tail
+		visibility: hidden
+		+transition(100ms, all, 0ms)
+		position: absolute
+		border-color: transparent transparent #5c89b7 transparent
+		border-style: solid
+		border-width: 0px 0 10px 10px 
+		height: 0
+	
+		bottom: -14px
+		
+		right: 13px
+		width: 0
+		z-index: 12	
+	
+	&:hover
+		.main, .tail
+			visibility: visible	
+	
+// global ends
+	
+body
+	background: #fefefe
+
+main
+	margin-top: 76px
+
+main >  .container
+	margin: 0 auto
+	max-width: 700px
+
+.resultsInfoHeading
+	padding: 20px 0
+	margin: 0
+	color: $other-grey
+	line-height: 1.3
+	font-size: 16px
+	border-bottom: solid 1px $border-color
+	strong	
+		color: inherit
+		font-weight: 600
+
+i,.glyphicon 
+	font-size: 12px !important	
+	margin-right: 5px !important
+
+	
+.resultsWrapper
+	position: relative
+	margin: 0
+	.imgWrapper, .infoWrapper
+		padding: 0
+		float: left
+	margin-bottom: 0
+	border-bottom: solid 1px $border-color
+	padding: 25px 10px
+	
+	.result, .otherInfoBody
+		&:after 
+			content: ""
+			clear: both
+			display: table
+	
+	.infoWrapper
+		padding-left: 20px
+		width: 100%
+		max-width: 75%
+
+	.nameWrapper h3
+		color: $green
+		margin: 0
+		margin-bottom: 10px
+		font-weight: 600
+		+transition(color, 100ms, 80ms)
+		font-size: 22px
+		&:hover, &:active
+			color: ($blue)
+	
+	.infoLines
+		line-height: 1.3
+		margin: 0
+		margin-bottom: 5px
+		color: $grey
+		font-size: 14px
+	
+	.ratinglikesWrapper
+		position: absolute
+		right: 10px
+		top: 25px
+	
+	.ratingWrapper, .likesWrapper
+		color: $white
+		display: block
+		margin-bottom: 15px
+		font-weight: 600
+		text-align: center
+		min-width: 45px
+		line-height: 1
+		background: $green
+		padding: 5px
+		+borderRadius(4px)
+		span
+			line-height: 1
+			font-size: 12px
+		span, i
+			vertical-align: middle
+			
+	.likesWrapper
+		background: $blue
+		top: 60px
+	
+	.imgWrapper
+		img
+			width: 100px
+			height: 100px
+			+borderRadius(4px)
+	
+	.otherResultInfoWrapper
+		margin-top: 20px
+		.col-xs-12
+			padding: 0
+		.otherInfoHead
+			p
+				color: $grey
+				font-weight: 600
+		.otherInfoBody
+			p
+				color: $other-grey
+		.reviewer
+			float: left
+			+borderRadius(4px)
+			width: 30px
+			height: 30px
+		.reviewerInfo
+			float: left
+			padding-left: 10px
+			line-height: 30px
+			font-weight: 600
+	
+
+	
+	.buttonWrapper
+		margin-top: 20px
+		.resultBtn
+			border: none
+			color: $white
+			background: rgba($blue, 1)
+			min-width: none
+			max-width: none
+			width: 100%
+			opacity: .7
+			+transition(opacity, 150ms, 100ms)
+			&:hover, &:active, &:focus
+				opacity: 1
+		i
+			font-size: 14px !important
+			vertical-align: sub
+		
+		.greenBtn
+			background: rgba($green, 1)
+	
+
+.search
+	+transition(visibility, 70ms, 0ms)
+	border-radius: 4px
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	z-index: 99999
+	outline: none
+
+	#searchBar
+		width: 40vw
+		max-width: 500px 
+		+borderRadius(4px)
+		border: none
+		padding: 11px 30px 11px 30px 
+		font-weight: 500
+		+transition(color, 150ms, 0ms)
+		&:active, &:focus
+			outline: none
+	
+#locateMeForm
+	right: 6px
+	.locateMe
+		padding: 2px 3px 4px 3px !important
+		i
+			margin: 0 !important
+			vertical-align: middle 
+
+.searchBarWrapper
+	&:before 
+		font-family: Glyphicons Halflings
+		content: "\e062"
+		font-size: 12px
+		color: $grey
+		position: absolute
+		top: 21px
+		left: 9px
+		transform: translateY(-50%)
+		padding-right: 11px
+		line-height: 1
+
+.main	
+	bottom: -38px
+	
+.tail
+	border-color: transparent transparent #5c89b7 transparent
+	border-width: 0px 0 10px 10px 
+	bottom: -14px
+	
+
+footer
+	h4
+		text-align: center
+		margin: 40px auto
+		
+	h4 span
+		font-size: 16px
+		font-weight: 600
+		color: $other-grey
+		position: relative
+	
+		&:after
+			+transition(all, 200ms, 50ms)
+			content: ' />'
+			opacity: 0
+			right: 0
+			position: absolute
+			top: 2px
+		&:before
+			+transition(all, 200ms, 50ms)
+			content: '< '
+			opacity: 0
+			left: 0
+			position: absolute
+			top: 2px
+		&:hover
+			&:after
+				opacity: 1
+				right: -15px
+				
+			&:before
+				opacity: 1
+				left: -15px
+
+.vmbWrapper
+	border-bottom: solid 1px $border-color
+
+#viewMoreBtn 
+	border-color: #dedede
+	min-width: 102px
+	color: $grey
+	background: transparent
+	+transition(all, 100ms, 80ms)
+	margin: 40px auto
+	&:active, &:hover, &:focus
+		background: #eee
+		color: $other-grey
+		
+.searchBtn, .userAccBtn
+	display: none
+	position: absolute
+	font-size: 30px !important
+	color: rgba($white, .8)
+	transform: translate(-50%, -50%)
+	display:none
+	cursor: pointer
+	top: 50%
+	right: 55px
+	+transition(all, 70ms, 0ms)
+	&:hover, &:active
+		color: $white
+
+.userAccBtn
+	right: 0		
+// media queries
+
+@media (max-width: $min-width)
+	header
+		.buttonWrapper
+			position: static
+			a 
+				visibility: hidden
+				position: absolute
+				left: 50%
+				top: 50%
+				transform: translate(-50%, 120%)
+				button
+					+boxShadow(0 3px 20px rgba(89,105,129,.3), 0 1px 2px rgba(0,0,0,.05), 0 0 0 1px rgba(89,105,129,.1))
+					background: rgba($white, 1)
+					width: 80vw
+					color: $other-grey
+					.divider
+						border-color: rgba($other-grey, .8)
+						font-weight: 900
+						font-size: 12px
+    					vertical-align: text-top
+	.searchBtn, .userAccBtn
+		display: block
+	.resultsWrapper .imgWrapper
+		text-align: center
+		float: none
+	.infoWrapper
+		margin-top: 20px
+		padding: 0 !important
+		width: 100% !important
+	.vleft, .vright
+		width: 100% !important
+	.vright
+		margin-top: 20px
+	.search
+		visibility: hidden
+		transform: translate(-50%, 120%)
+		+boxShadow(0 3px 20px rgba(89,105,129,.3), 0 1px 2px rgba(0,0,0,.05), 0 0 0 1px rgba(89,105,129,.1))
+	#searchBar
+		width: 80vw !important

@@ -1,0 +1,46 @@
+@import '../../styles/variables.sass'
+
+.tradesWrapper
+  min-height: 40vh
+
+  .addTradeWrapper
+    display: flex
+    justify-content: space-between
+    margin: 1rem 0 3rem 0
+  .allItemsBtn
+    border-bottom: solid 2px
+  .tradeBtn
+    color: $light-grey
+    font-size: .9rem
+    font-weight: 700
+    padding: 0
+    background: transparent
+    text-transform: uppercase
+    transition: all, .3s
+    cursor: pointer
+    &:hover
+      color: $black
+.tradesInfoWrapper
+  display: flex
+  flex-direction: column
+  h3
+    letter-spacing: 1px
+    margin-bottom: .5rem
+.allTradeRequestsWrapper
+  margin-bottom: 2rem
+  overflow-y: hidden
+
+.allProposedTradesWrapper
+  margin-bottom: 2rem
+  overflow-y: hidden
+
+.name
+  font-weight: 700
+  color: $black
+
+.noitemHeading
+  margin: 1rem 0
+  color: $grey
+  line-height: 1.2
+  font-size: .9rem
+  letter-spacing: 1px

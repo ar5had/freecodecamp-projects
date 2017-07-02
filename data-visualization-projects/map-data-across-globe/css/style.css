@@ -1,0 +1,56 @@
+* {
+  font-family: "Montserrat", monospace;
+}
+
+body {
+  margin: 0 !important;
+  overflow: hidden;
+  background: #191919;
+}
+
+.land {
+  fill: #393939;
+  stroke: #666;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.meteor {
+  fill: #f15b2a;
+  fill-opacity: 0.4;
+  stroke: #666;
+  stroke-width: 1px;
+}
+
+.meteor:hover {
+  stroke: #222;
+}
+
+.tooltip {
+  position: absolute;
+  background: #fff;
+  pointer-events: none;
+  height: auto;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 15px;
+  font-weight: 700;
+  background: rgba(34, 34, 34, 0.6);
+}
+
+.tooltip > span {
+  display: block;
+}
+
+.tooltip > .name {
+  color: #f15b2a;
+}
+
+.tooltip > .mass,
+.tooltip > .date,
+.tooltip > .year,
+.tooltip > .fall {
+  color: #777;
+}

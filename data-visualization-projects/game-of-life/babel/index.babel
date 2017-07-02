@@ -1,0 +1,294 @@
+// Component model
+//
+// Board
+//  Logo
+//  Controls
+//   StartStop
+//   Clear
+//  Cells
+//   Cell
+
+var Board = React.createClass({
+  updateDimensions: function() {
+    this.setState({width: $(window).width(), height: $(window).height()});
+    this.refs.cells.screenResize();
+  },
+  componentDidMount: function(){
+    window.addEventListener("resize", this.updateDimensions);
+  },
+  playOrPause: function(shouldPlay) {
+    if(shouldPlay)
+      this.refs.cells.startGame();
+    else
+      this.refs.cells.pauseGame();
+  },
+  clearBoard: function() {
+    this.refs.cells.resetCells();
+  },
+  render: function() {
+    return (
+      <div className="board" id="board">  
+        <div id="panel">
+          <Logo />
+          <Controls clear={this.clearBoard} playOrPause={this.playOrPause}/>
+        </div>
+        <Cells ref="cells" />
+      </div>
+    );
+  }
+});
+
+var Logo = React.createClass({
+  render: function() {
+    return(
+      <div id="logoContainer">
+        <h3 id="logo">Game of <span>Life</span></h3>  
+      </div>
+    );
+  }
+});
+
+var Controls = React.createClass({
+  render: function() {
+    return (
+      <div className="controls" id="controls">
+        <div className="controlsContainer">
+          <GenerationDisplay />
+          <StartStop onClick={this.props.playOrPause}/>
+          <Clear onClick={this.props.clear} />
+        </div>
+      </div>
+    );
+  }
+});
+
+var GenerationDisplay = React.createClass ({
+  render: function() {
+    return (
+      <div className="gDisplay col-xs-8">
+        <h4 className="generationText">Generation :
+          <span id="count">
+            000000
+          </span>  
+        </h4>
+      </div>
+    );
+  }
+});
+
+var StartStop = React.createClass({
+  onClick : function(e) {
+    $(".startstop").toggleClass("on");
+    $(".startstop > span").toggleClass("glyphicon-pause"); 
+    if($(".startstop").hasClass("on"))
+      this.props.onClick(true);
+    else
+      this.props.onClick(false);
+  },
+  render: function() {
+    return (
+      <div className="btnContainer col-xs-2">
+        <button className="startstop transition on" onClick={this.onClick}>
+          <span className="glyphicon glyphicon-play glyphicon-pause" /> 
+        </button>
+       </div>
+    );
+  }
+});
+
+var Clear = React.createClass({
+  onClick : function(e) {
+    $(".startstop").removeClass("on");
+    $(".startstop>span")
+      .removeClass("glyphicon-pause");
+    this.props.onClick();
+  },
+  render: function() {
+    return (
+      <div className="btnContainer col-xs-2">
+        <button className="clear transition on" onClick={this.onClick}>
+          <span className="glyphicon glyphicon-stop" />
+        </button>        
+       </div>
+    );
+  }
+});
+
+var Cells = React.createClass({
+  getInitialState: function() {
+    this.getScreenDimensions();
+    var cellStates = [];
+    for(var i = 0; i < this.rows; i++) {
+      cellStates[i] = [];
+      for(var j = 0; j < this.cols; j++) {
+        if(Math.random() > .5)
+          cellStates[i][j] = true;
+        else
+          cellStates[i][j] = false;
+      }  
+    }
+    return {cellStates: cellStates};
+  }, 
+  componentDidMount: function(){
+    this.startGame();
+  },
+  startGame: function() {
+    var parent_this = this;
+    this.generationInterval = setInterval(function(){
+      var count = $("#count").html();
+      count = +count;
+      count++;
+      var zeros = 6 - String(count).length;
+      var prefix ="";
+      while (prefix.length < zeros)
+        prefix += "0"
+      $("#count").html(prefix+count);
+      parent_this.updateCells();
+    },100);
+  },
+  pauseGame: function() {
+    this.resetGeneration();
+  },
+  updateCells: function() {
+    var cellStates=[];
+    for(var i = 0; i < this.rows; i++) {
+      cellStates.push([]);
+      for(var j = 0; j < this.cols; j++) {
+        var top = (i > 0) ? i - 1: this.rows - 1;
+        var bottom = (i < (this.rows - 1)) ? i + 1: 0;
+        var left = (j > 0) ? j - 1: this.cols - 1;
+        var right = (j < (this.cols - 1)) ? j + 1: 0;
+        // neighbours count
+        var count = 0;
+        //checking top
+        if(this.state.cellStates[top][j])
+          count++;
+        //checking bottom
+        if(this.state.cellStates[bottom][j])
+          count++;
+        //checking left
+        if(this.state.cellStates[i][left])
+          count++;
+        //checking right
+        if(this.state.cellStates[i][right])
+          count++;
+        //checking top-left
+        if(this.state.cellStates[top][left])
+          count++;
+        //checking top-right
+        if(this.state.cellStates[top][right])
+          count++;
+        //checking bottom-left
+        if(this.state.cellStates[bottom][left])
+          count++;
+        //checking bottom-right
+        if(this.state.cellStates[bottom][right])
+          count++;
+        
+        if((count === 2 || count === 3) && this.state.cellStates[i][j])
+          cellStates[i][j] = true;
+        else if(count === 3 && !this.state.cellStates[i][j])
+          cellStates[i][j] = true;
+        else
+          cellStates[i][j] = false;
+        
+      }        
+    }
+    if(document.querySelectorAll(".dead").length === (this.rows * this.cols))
+      $(".clear").click();
+    else
+      this.setState({cellStates: cellStates});
+       
+  },
+  clearCells: function() {
+    var cellStates = [];
+    for(var i = 0; i < this.rows; i++) {
+      cellStates[i] = [];
+      for(var j = 0; j < this.cols; j++) {
+        cellStates[i][j] = false;
+      }  
+    }
+    this.setState({cellStates: cellStates});
+  },
+  resetGeneration: function() {
+    clearInterval(this.generationInterval);
+  },
+  getScreenDimensions: function() {
+    var width = document.querySelector("body").offsetWidth;
+    var height = document.querySelector("body").offsetHeight - 125;
+    // if(document.querySelector(".cells")) {  
+    //   document.querySelector(".cells").style.width = width;
+    //   document.querySelector(".cells").style.height = height;
+    // }   
+    this.cols = Math.floor(width/10);
+    this.rows = Math.floor(height/10);
+  },
+  resetCells: function() {
+    this.resetGeneration();
+    $("#count").html("000000");
+    this.clearCells();
+  },
+  cellClicked : function(row, col, val) {
+    var cellStates = this.state.cellStates;
+    cellStates[row][col] = val;
+    this.setState({cellStates: cellStates});
+  },
+  screenResize: function() {
+    this.getScreenDimensions();
+    var cellStates = [];
+    for(var i = 0; i < this.rows; i++) {
+      cellStates[i] = [];
+      for(var j = 0; j < this.cols; j++) {
+        if(Math.random() > .5)
+          cellStates[i][j] = true;
+        else
+          cellStates[i][j] = false;
+      }  
+    }
+    this.setState({cellStates: cellStates});
+  },
+  render: function() {
+    var cells = [];
+    for(var i = 0; i < this.rows; i++) {
+      for(var j = 0; j < this.cols; j++) {
+        if(this.state.cellStates[i][j])
+          cells.push(<Cell dead={false} row={i} col={j} onClick={this.cellClicked}/>);
+        else
+          cells.push(<Cell dead={true} row={i} col={j} onClick={this.cellClicked}/>);
+      }  
+    }
+    return (
+      <div className="cells" id="cells">
+        {cells}
+      </div>
+    );
+  }
+});
+
+var Cell = React.createClass({
+  getClasses: function(str) {
+    if(this.props.dead)
+      return str + " dead"
+    else
+      return str;
+  },
+  onClick: function(e){
+    $(e.currentTarget)
+      .toggleClass("dead");
+    var row = e.currentTarget.getAttribute("data-row");
+    var col = e.currentTarget.getAttribute("data-col");
+    var val = $(e.currentTarget).hasClass("dead") ? false : true;
+    this.props.onClick(row, col, val);
+  },
+  render: function() {
+    return (
+      <div className={this.getClasses("cell transition")} onClick={this.onClick} data-row={this.props.row} data-col={this.props.col}></div>
+    );
+  }
+});
+
+ReactDOM.render(<Board />, document.getElementById("app"));
+
+
+
+

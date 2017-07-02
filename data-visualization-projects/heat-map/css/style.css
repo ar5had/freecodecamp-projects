@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+}
+
+h4, p {
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+  color: #499db2;
+}
+
+p {
+  font-size: 13px;
+}
+
+* {
+  font-family: "Vollkorn";
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+h4 {
+  font-family: "Ubuntu";
+  font-size: 15px;
+  margin: 10px auto;
+}
+
+#yaxis path, #yaxis .tick line {
+  fill: transparent;
+  stroke: transparent;
+}
+
+text {
+  fill: #333;
+  font-weight: 700;
+}
+
+#xaxis path, #xaxis .tick line {
+  stroke-width: 2;
+  stroke: #333;
+}
+
+.xinfo, .yinfo {
+  font-family: "Ubuntu";
+  fill: #333;
+  font-weight: 700;
+}
+
+.rect:hover {
+  fill: #e85;
+}
+
+body {
+  position: relative;
+  background: #fefefe;
+}
+
+.tooltip {
+  position: absolute;
+  background: #333;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.tooltip > span {
+  display: block;
+  margin: 10px;
+  color: #Fff;
+  font-size: 13px;
+}
+
+.tooltip > span > b {
+  font-family: "Ubuntu";
+}
+
+.description {
+  min-width: 520px;
+	margin-bottom: 10px;
+}

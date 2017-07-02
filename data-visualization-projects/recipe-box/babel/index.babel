@@ -1,0 +1,279 @@
+// React component Model
+// -->Container
+// ---->ButtonSection
+// ------>AddButton
+// ---->ModalSection
+// ---->RecipeSection
+// ------>Recipe
+// -------->Ingredients
+
+var App = React.createClass({
+  getInitialState: function() {
+    return {recipies: [], localKeys: localStorage.arshdkhn1keys ? localStorage.arshdkhn1keys: "Apple pie|Another Apple pie", showModal: false, isEditing: false, editingRecipeId: null};
+  },
+  alotId: function() {
+    return Math.floor((Math.random() * 1000000000) + 1);;
+  },
+  removeRecipe: function(id) {
+    var stateVar = this.state.recipies;
+    var targetName = "";
+    stateVar = stateVar.map(function(elem){
+      if(elem.id.toString() === id) {
+        targetName = elem.name;
+        elem.showRecipe = false;
+      }
+      return elem;
+    });
+
+    var keys = this.state.localKeys.split("|");
+
+    var index = keys.indexOf(targetName);
+    console.log("Keys", keys, "index", index);
+    if(index !== -1) {
+      localStorage.removeItem(keys[index]);
+      keys.splice(index, 1);
+      keys = keys.join("|");
+    }
+    this.setState({recipies: stateVar, localKeys: keys});
+  },
+  openModal: function(isEditing, id) {
+    if(isEditing === "editMode")
+      this.setState({showModal: true, isEditing: true, editingRecipeId: id});
+    else
+      this.setState({showModal: true});
+    setTimeout(function() {
+      $(".recipeModal").removeClass("mainModal");
+      $(".modalBackground").removeClass("mainModal");
+    },200);
+  },
+  editModal: function(name, id) {
+    this.openModal("editMode", id);
+    var parent_this = this;
+    setTimeout(function(){
+      document.getElementById("nameInput").value = name;
+      var elem = parent_this.state.recipies.filter(
+        function(recipe){if(recipe.name === name)return true;});
+      document.getElementById("ingredientsInput").value =
+        elem[0]["ingredients"].join(", ");
+    }, 200);
+  },
+  closeModal: function() {
+    $(".recipeModal").addClass("mainModal");
+    $(".modalBackground").addClass("mainModal");
+    var parent_this = this;
+    setTimeout(function(){
+      parent_this.setState({showModal: false, isEditing: false, editingRecipeId: null});
+    }, 400);
+  },
+  closeAndSave: function(name, ingredients, localKeys) {
+
+    var parent_this = this;
+    var id = this.alotId();
+    var state = this.state.recipies;
+    state.push({id: id, showRecipe: true, name: name, ingredients: ingredients});
+
+    $(".recipeModal").addClass("mainModal");
+    $(".modalBackground").addClass("mainModal");
+
+    setTimeout(function(){
+      if(localKeys)
+
+        parent_this.setState({recipies: state, localKeys: localKeys, showModal: false});
+      else
+        parent_this.setState({recipies: state, showModal: false});
+    }, 400);
+  },
+  getRecipeObj: function(name, ingredients) {
+    return ({id: this.alotId(), showRecipe: true, name: name, ingredients: ingredients});
+  },
+  getLocalStorageData: function() {
+    var local = localStorage;
+    var keys = local.arshdkhn1keys.split("|");
+    var parent_this = this;
+    var state = this.state.recipies;
+    keys.forEach(function(elem){
+      var name = elem;
+      if(local[elem]) {
+        var ingredients = local[elem].split(",");
+        state.push(parent_this.getRecipeObj(name, ingredients));
+      }
+    });
+    this.setState({recipies: state});
+  },
+  editAndSave: function(name, ingredients, localKeys) {
+    var recipies = this.state.recipies;
+    var parent_this = this;
+    var previousName = undefined;
+    recipies = recipies.map(function(elem){
+      if(elem.id.toString() === parent_this.state.editingRecipeId && elem.showRecipe) {
+        previousName = elem.name;
+        elem.name = name;
+        elem.ingredients = ingredients;
+      }
+      return elem;
+    });
+    localStorage.removeItem(previousName);
+    localStorage.setItem(name, ingredients);
+    localKeys = localKeys.split("|");
+    var index = localKeys.indexOf(previousName);
+    localKeys.splice(index,1,name);
+    localStorage.arshdkhn1keys = localKeys.join("|");
+    //console.log("After", recipies);
+    this.setState({recipies: recipies, localKeys: localKeys.join("|"),isEditing: false, editingRecipeId: null, showModal: false});
+  },
+  componentDidMount: function() {
+    if(!localStorage.arshdkhn1keys) {
+      localStorage.setItem("arshdkhn1keys", "Apple pie|Another Apple pie");
+      localStorage.setItem("Apple pie", "Apple, Flour, Sugar, Cream");
+      localStorage.setItem("Another Apple pie", "Apple, Flour, Sugar, Cream");
+    }
+    this.getLocalStorageData();
+  },
+  render: function() {
+    return (
+      <div className="container-fluid">
+        <ButtonSection openModal={this.openModal}/>
+        <ModalSection showModal={this.state.showModal} closeModal={this.closeModal} saveClick={this.state.isEditing ?
+        this.editAndSave : this.closeAndSave} isEditingGoingOn={this.state.isEditing}/>
+        <RecipeSection editRecipe={this.editModal} recipies={this.state.recipies} removeRecipe={this.removeRecipe} />
+      </div>
+    );
+  }
+});
+
+var ButtonSection = React.createClass({
+  render: function() {
+    return (
+      <div className="row buttonSect">
+        <div className="col-xs-8">
+          <h2 className="heading">Recipe Box</h2>
+        </div>
+        <div className="col-xs-4">
+          <button className="addBtn bs ts" onClick={this.props.openModal}>
+            Add recipe
+          </button>
+        </div>
+      </div>
+    );
+  }
+});
+
+
+var ModalSection = React.createClass({
+  editRecipe: function() {
+    var name = document.getElementById("nameInput").value ;
+    var ingredients = document.getElementById("ingredientsInput").value;
+    name = name ? name : "Untitled";
+    ingredients = ingredients ? ingredients : "No ingredients";
+    this.props.saveClick(name, ingredients.split(","), localStorage.arshdkhn1keys);
+  },
+  saveRecipe: function() {
+    var name = document.getElementById("nameInput").value ;
+    var ingredients = document.getElementById("ingredientsInput").value;
+    name = name ? name : "Untitled";
+    ingredients = ingredients ? ingredients : "No ingredients";
+    localStorage.setItem(name, ingredients);
+    if(!localStorage.arshdkhn1keys)
+      localStorage.setItem("arshdkhn1keys", name);
+    else
+      localStorage.arshdkhn1keys += "|" + name;
+    this.props.saveClick(name, ingredients.split(","), localStorage.arshdkhn1keys);
+  },
+  render: function() {
+    var modal = (this.props.showModal) ? <div><div className="modalBackground mainModal ts" /><div className="recipeModal bs mainModal ts">
+          <div className="nameSect">
+            <label for="nameInput">Enter recipe name</label>
+            <input className="input" placeholder="Name" id="nameInput" />
+          </div>
+          <div className="ingredientsSect">
+            <label for="ingredientsInput">Enter ingredients</label>
+            <input className="input" placeholder="Ingredients separated by comma" id="ingredientsInput" />
+          </div>
+          <div className="buttonSect">
+            <button className="saveBtn" onClick={this.props.isEditingGoingOn ? this.editRecipe: this.saveRecipe}>Save</button>
+            <button className="closeBtn" onClick={this.props.closeModal}>Close</button>
+          </div>
+    </div></div> : null;
+    return(<div>{modal}</div>);
+  }
+});
+
+var RecipeSection = React.createClass({
+  editRecipe : function(id) {
+    var stateVar = this.props.recipies;
+    var targetName = "";
+    stateVar.forEach(function(elem){
+      if(elem.id.toString() === id) {
+        targetName = elem.name;
+      }
+    });
+    this.props.editRecipe(targetName, id);
+  },
+  render: function() {
+    var recipies = [];
+    var parent_this = this;
+    this.props.recipies.forEach(function(elem){
+      if(elem.showRecipe)
+        recipies.push(<Recipe id={elem.id} name={elem.name} ingredients={elem.ingredients} removeRecipe={parent_this.props.removeRecipe} editRecipe={parent_this.editRecipe}/>);
+    });
+    return (
+      <div className="recipeSect" id="recipeSect">
+        {recipies}
+      </div>
+    );
+  }
+});
+
+var Recipe = React.createClass({
+  handleClickOnMain: function(e) {
+    if(e.target.classList.contains("deleteBtn") || e.target.classList.contains("editBtn")) {
+      return;
+    }
+    var condition = e.currentTarget.classList.contains('opened');
+    $(".opened").removeClass("opened");
+    if(!condition)
+      e.currentTarget.classList.add("opened");
+  },
+  remove : function(e){
+    this.props.removeRecipe(e.currentTarget.parentNode.parentNode.id);
+  },
+  edit : function(e) {
+    this.props.editRecipe(e.currentTarget.parentNode.parentNode.id);
+  },
+  render: function() {
+    return (
+      <div className="row recipe ts" onClick={this.handleClickOnMain} id={this.props.id}>
+        <div className="col-xs-12 recipeHeader ts">
+          <h3 className="recipeName">
+            {this.props.name}
+          </h3>
+          <span data-toggle="tooltip" className="btn editBtn ts glyphicon glyphicon-pencil" title="Edit" data-placement="top" onClick={this.edit}></span>
+          <span className="btn deleteBtn ts glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete" data-placement="top" onClick={this.remove}></span>
+        </div>
+        <div className="col-xs-12 recipeContent">
+          <h4>Ingridients:</h4>
+          <Ingredients data={this.props.ingredients}/>
+        </div>
+      </div>
+    );
+  }
+});
+
+var Ingredients = React.createClass({
+  render: function() {
+    var ingredients = [];
+    this.props.data.forEach(function(elem) {
+      ingredients.push(<button className="ingredients">{elem.trim()}</button>);
+    });
+    return (
+      <div className="ingridientsList">
+        {ingredients}
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(
+<App />,
+document.getElementById("app")
+);

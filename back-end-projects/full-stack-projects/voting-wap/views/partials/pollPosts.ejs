@@ -1,0 +1,35 @@
+<% polls.reverse().forEach(function(poll) { %>
+	<a href="/polls/<%= poll.secret %>">
+		<div class="container box post">
+			<div class="col-xs-12 questionWrapper">
+				<h3 class="question">
+					<%= poll.question %>
+				</h3>
+			</div>
+			<div class="pull-left">
+				<button class="votesCount showBtn">
+					<%= poll.votes.reduce(function(total, next) { return total + next; }) %> votes
+				</button>
+				<button class="viewsCount showBtn">
+					<%= poll.views %> views 
+				</button>
+			</div>
+			<div class="pull-right">
+				<p class="author text-right"> 
+					<span class="authorName">
+						<%= poll.author %>
+					</span>
+				</p>
+				<p class="date text-right">
+					<%= poll.createdAt %>
+				</p>
+			</div>
+		</div>
+	</a>
+<% }); %>
+<% if (!polls.length) { %>
+	<div class="col-xs-12 text-center emptyBlock marB30">
+		<img class="emptyImg img-responsive" src="/public/img/folder.png" alt="404 - Page Not Found" />
+		<h3>No polls found</h3>
+	</div>
+<% } %>

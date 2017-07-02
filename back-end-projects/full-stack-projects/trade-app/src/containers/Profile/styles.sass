@@ -1,0 +1,40 @@
+@import '../../styles/variables.sass'
+
+.infoWrapper
+  display: flex
+  min-height: 40vh
+  flex-direction: column
+  padding: 1rem 0
+  flex-wrap: wrap
+  .message
+    flex: 1 1 100%
+    padding: 15px
+    margin-bottom: 3rem
+    background: lighten($black, 0%)
+    border-left: solid 5px lighten($black, 10%)
+    display: flex
+    transition: all .2s
+    p, span
+      font-size: 1rem
+      letter-spacing: 1px
+      color: $background-color
+      opacity: 1
+      font-weight: 500
+      font-family: inherit
+    p
+      flex: 1
+      line-height: 1.4
+    span
+      cursor: pointer
+      transition: all .1s cubic-bezier(1, 0.03, 0.28, 0.07)
+      background: transparent
+      width: 20px
+      height: 20px
+      text-align: center
+      line-height: 1.1
+      border-radius: 50%
+      user-select: none
+      font-weight: 700
+      &:hover
+        background: lighten($black, 10%)
+

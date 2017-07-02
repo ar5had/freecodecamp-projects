@@ -1,0 +1,211 @@
+*{
+  font-family: 'Varela Round', sans-serif;
+}
+
+body {
+  background: #5B99C2;
+  min-height: 101vh;
+}
+
+
+html{
+  font-size: 1px;
+}
+
+.row1, .row2, .row3 {
+  padding: 0;
+  margin: 0;
+}
+
+.selection{
+  min-width: 360rem ;
+  border-radius: 10rem;
+  background: #414141;
+  border: solid 15rem #373737;
+}
+
+ h3{
+  color: #eee;
+  font-size: 40rem;
+  line-height: 1;
+  margin: 6rem;
+  font-weight: 700;
+
+}
+
+.or{
+  display: inline-block;
+  font-size: 40rem;
+  margin: 0 30rem;
+  vertical-align: middle;
+  color: #eee;
+  font-weight: 700;
+}
+
+
+.btn{
+  background: none;
+  font-size: 40rem;
+  width: 80rem;
+  font-weight: 700;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btnx:hover{
+  color: #F27164;
+  background: none;
+  border: 6rem solid #F27164;
+}
+
+.btno:hover{
+  color: #E9CB53;
+  border: 6rem solid #E9CB53;
+  background: none;
+}
+
+.btn:active, .btn, .btn select{
+  outline: none !important;
+}
+
+.btnx, .btnx:active{
+  color: #F27164 !important;
+  line-height: 1;
+  border: 6rem solid #F27164  !important;
+  background: none !important;
+}
+
+.btno, .btno:active{
+  color: #E9CB53 !important;
+  line-height: 1;
+  border: 6rem solid #E9CB53 !important;
+  background: none !important;
+}
+
+.pa{
+  margin: 40rem auto 120rem auto;
+}
+
+.row{
+  margin-bottom: 40rem;
+}
+
+.board{
+  width: 289rem;
+  margin: auto;
+  background: #414141;
+  border-radius: 10rem;
+  border: solid 15rem #373737;
+  box-sizing: content-box;
+  padding: 30rem;
+}
+
+.lines{
+  color: #5B99C2;
+  cursor: pointer;
+  min-height: 96rem;
+  width: 96rem;
+}
+
+.box00{
+  border-right: 6rem solid;
+  border-bottom: 6rem solid;
+}
+
+.box01{
+  border-right: 6rem solid;
+  border-bottom: 6rem solid;
+}
+
+.box02{
+  border-bottom: 6rem solid;
+}
+
+.box10{
+  border-right: 6rem solid;
+  border-bottom: 6rem solid;
+}
+
+.box11{
+  border-right: 6rem solid;
+  border-bottom: 6rem solid;
+}
+
+.box12{
+  border-bottom: 6rem solid;
+}
+
+.box20{
+  border-right: 6rem solid;
+}
+
+.box21{
+  border-right: 6rem solid;
+}
+
+
+.row1, .row2, .row3{
+  min-height: 96rem;
+}
+
+.alignBE{
+  line-height: 96rem;
+  margin: 0;
+  min-height: 96rem;
+  text-align: center;
+}
+
+.lines{
+  padding: 0;
+  margin 0;
+}
+
+.centerIntoPage{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#status{
+  z-index: 9999;
+  font-family: 'Varela Round', sans-serif;
+  color: #eee;
+  font-size: 100rem;
+  font-weight: 700;
+  text-align: center;
+  transform: rotate(-30deg);
+  text-shadow: 5rem 0rem #666;
+}
+
+.statDiv{
+  z-index: 99999;
+}
+
+.X {
+  color: #F27164;
+}
+
+.O {
+  color: #E9CB53;
+}
+
+@media screen and (max-width : 500px) {
+  html {
+    font-size: .7px;
+  }
+}
+
+@media screen and (max-width : 350px) {
+  html {
+    font-size: .5px;
+  }
+
+}
+
+
+@media screen and (min-width : 750px) {
+  html {
+    font-size: 1px;
+  }
+}

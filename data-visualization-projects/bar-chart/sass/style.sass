@@ -1,0 +1,65 @@
+body
+  position: relative
+
+#chart text, .axis text, .description  tspan, .tooltip
+  fill: #444
+  font-size: 12px
+  font-weight: 700
+  font-family: 'Cutive Mono', monospace
+  
+.axis .path,
+.axis .line,
+.domain, line 
+  fill: none
+  stroke: #444
+
+.tooltip
+  opacity: 0
+  background: #fff
+  box-shadow: 0 0 5px rgba(0,0,0,.1)
+  color: #444
+  padding: 10px 0
+  overflow: hidden
+  position: absolute
+  width: 160px
+  overflow: hidden
+  white-space: nowrap
+  border-radius: 25px 
+  text-align: center
+  border: solid 1px #eee
+  
+.tooltip > span
+  display: block
+
+.tooltip > span:first-child
+  color: rgb(132, 200, 70)
+  font-weight: 700
+
+rect.rect
+  stroke: rgba(0,0,0,0)
+  
+rect.rect:hover
+  stroke: #efefef 
+
+.container
+  padding: 20px 0
+  
+#descriptionText, #heading
+  color: #444
+  font-size: 12px
+  font-weight: 700
+  font-family: 'Cutive Mono', monospace
+  text-align: center
+
+.chartContainer
+  text-align: center
+  
+#heading
+  font-size: 20px
+  margin: 10px 0
+
+#descriptionText
+  padding: 0 10px 
+  
+body
+  margin: 0

@@ -1,0 +1,118 @@
+@import '../../styles/variables.sass'
+
+@keyframes wave
+  from
+    // transform: scale(1.2)
+    background-size: 70%
+  to
+    background-size: 50%
+    // transform: scale(1)
+
+.item
+  height: auto
+  padding: 15px 15px 10px 15px
+  background: #fff
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+  margin-bottom: 40px
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1)
+  flex: 0 0 calc(100%)
+  transition: opacity .2s ease-in-out
+  &:nth-child(2n)
+    margin-left: 0
+  .info
+    padding: 10px 0
+    color: $blue
+    letter-spacing: 2px
+    word-spacing: 2px
+    display: flex
+    justify-content: space-between
+    .pname
+      line-height: 2
+      flex: 1
+      height: 30px
+      overflow: hidden
+      margin-right: 10px
+      position: relative
+      &:after, &::after
+        z-index: 2
+        display: block
+        content: ' '
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff)
+        height: 2rem
+        bottom: 2px
+        right: 0
+        width: 40px
+        position: absolute
+    .pauthinfo
+      display: flex
+      align-items: center
+      font-weight: 700
+      .heartBtnWrapper
+        display: flex
+        align-items: center
+      .heart-button
+        background-image: url('../../assets/images/heart.png')
+        margin-left: 5px
+      .heart-button.wait
+        background-color: transparentize($heartRed, .5)
+        animation: wave infinite .5s ease-in-out
+        pointer-events: none
+      .heart-button.liked
+        background:
+          color: $heartRed
+      .heart-button.disabled
+        pointer-events: none !important
+      .heart-button, .delete-button
+        line-height: 1
+        border: solid 2px transparent
+        font-weight: bold
+        color: $light-grey
+        line-height: 1
+        cursor: pointer
+        background:
+          repeat: no-repeat
+          color: lighten($light-grey, 20%)
+          size: 50%
+          position: 50% 50%
+        width: 18px
+        height: 18px
+
+        display: block
+        border-radius: 50%
+      .delete-button
+        margin-left: 10px
+        border: none
+        background-image: url('../../assets/images/delete.png')
+        width: 24px
+        height: 24px
+      .author-img
+        margin-left: 10px
+        span
+          background:
+            color: #eee
+            repeat: no-repeat
+            size: 100%
+          overflow: hidden
+          text-indent: 110%
+          display: block
+          width: 24px
+          height: 24px
+          border-radius: 50%
+  .picture
+    div
+      padding-bottom: 100%
+      background:
+        color: #eee
+        repeat: no-repeat
+        size: cover
+        position: 50% 50%
+
+.item.deleted
+  opacity: .6
+  pointer-events: none
+  .delete-button
+    background:
+      color: $black !important
+    cursor: not-allowed !important

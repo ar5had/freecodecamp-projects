@@ -1,0 +1,32 @@
+<div id="hideAll" style="display:block;">&nbsp;</div>
+<script>
+	window.onload=function() {
+		document.getElementById('hideAll').style.opacity = 0;
+		setTimeout(function() {
+    		document.getElementById('hideAll').style.display='none';
+		}, 200);
+	};
+</script>
+<div class="container-fluid header">
+	<div class="container">
+    	<div class="col-xs-2">
+    		<img src="/public/img/menu.png" class="navIcons" alt="Menu" id="menuIcon"/>
+    	 </div>
+    	<div class="col-xs-8 text-center">
+    	    <a href="/" id="logo">
+    	    	<p>
+    	    		<span>
+    	    			Voting
+    	    		</span>
+    	    		Wap
+    	    	</p>
+    	    </a>
+    	</div>
+    	<div class="col-xs-2 text-right">
+    	    <a href="/create-poll">
+    	        <img rel="tooltip" title="Create new poll" src="/public/img/add.png" class="navIcons" alt="Create Poll" id="newIcon"/>
+    	    </a>
+    	</div>
+	</div>
+	<% include ./sidebar %>
+</div>

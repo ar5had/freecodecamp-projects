@@ -1,0 +1,50 @@
+@import '../../styles/variables.sass'
+
+.main
+  padding: 1rem 20px
+  min-height: 40vh
+
+  .itemsWrapper
+    display: flex
+    flex-wrap: wrap
+  .itemsWrapper.ONE
+    .item
+      flex: 0 0 100% !important
+      &:nth-child(2n)
+        margin-left: 0
+  .heading
+    font-weight: 600
+    text-transform: uppercase
+    font-size: 1rem
+    flex: 1 1 100%
+    color: $black
+    margin-bottom: 2rem
+    display: flex
+    .title
+      flex: 1
+    & > span
+      display: flex
+  .square
+    display: inline-block
+    width: 10px
+    height: 10px
+    background: transparentize($light-grey, .5)
+  .onesquare
+    cursor: pointer
+    display: flex
+    flex-direction: column
+    & > .square
+      width: 10px
+      height: 8px
+      margin-top: 2px
+
+  .twosquare
+
+    margin-left: 14px
+    display: flex
+    & > .onesquare
+      margin-left: 2px
+
+  .selectedView  .square
+    background: $black
+

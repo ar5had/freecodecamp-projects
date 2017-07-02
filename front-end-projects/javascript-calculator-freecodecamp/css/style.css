@@ -1,0 +1,111 @@
+body{
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  background: #eee;
+}
+
+.mainBody{
+  background: #e6cc67;
+  width: 300px;
+  height: 480px;
+  padding: 0;
+  margin: 3% auto;
+  border-radius: 20px;
+  box-sizing: content-box;
+  box-shadow: 0 15px 15px rgba(0,0,0,.3);
+}
+
+.displayPart{
+  padding: 30px 20px;
+  border-radius: 10px 10px 0 0;
+  background: #363535;
+  border-radius: 20px 20px 0 0;
+}
+
+.display{
+  background: #444;
+  height: 60px;
+  width: 100%;
+  border: 0;
+  text-align: right;
+  line-height: 60px;
+  color: #fff;
+  font-size: 25px;
+  letter-spacing: 2.8px;
+  padding: 0 12px;
+  box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,.3);
+}
+
+.borderDivs{
+  padding: 0;
+}
+
+.borderDivs{
+  height: 8px;
+  background-color: #444;
+}
+
+.btnAns, .btn{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.buttonsPart{
+  padding: 40px 0 0px 0;
+}
+
+.buttons{
+  line-height: 1.5;
+  color: #fff;
+  background: #444;
+  font-weight: 900;
+  width: 50px;
+  margin: 7px 7px;
+  display: inline;
+  font-size: 13px;
+  border-radius: 4px;
+  border: solid 2px #444;
+  box-shadow: 0 0 1px 1px rgba(0,0,0,.3);
+  outline: none;
+}
+
+.btnEqual{
+  width: 118px;
+}
+
+.buttons:focus,
+.buttons:active,
+.buttons:hover {
+  color: #fff;
+  outline: none !important;
+}
+
+:focus {outline:none;}
+
+::-moz-focus-inner {border:0;}
+
+.buttons:active{
+ color: #fff;
+ outline: none;
+ box-shadow: none;
+}
+
+::-webkit-input-placeholder {
+   opacity: .2;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   opacity: .2;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   opacity: .2;
+}
+
+:-ms-input-placeholder {
+   opacity: .2;
+}
+
+.btnMult{
+  font-size: 15px;
+}

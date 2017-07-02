@@ -1,0 +1,94 @@
+.stock {
+  background: #fefefe;
+  padding: 10px;
+  position: relative;
+  transition: opacity .2s ease;
+  border-radius: 2px;
+}
+
+.stock > h4 {
+  padding-right: 30px;
+  text-transform: uppercase;
+}
+
+.stock > h4, .stock > p {
+  margin: 10px 0;
+  color: #2b2833;
+  word-wrap: break-word;
+}
+
+.stock > p {
+  color: rgba(43, 40, 51, .6);
+  font-size: 15px;
+}
+
+.removeStockBtn {
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  color: #2b2833;
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+  line-height: 0;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity .2s ease;
+  border: none;
+  font-size: 15px;
+  padding-left: 5px
+}
+
+.removeStockBtn:hover {
+  cursor: pointer;
+  background: #efefef;
+}
+
+.stockWrapper {
+  transition-property: all;
+  transition-duration: .3s;
+  overflow: hidden;
+  max-height: 300px;
+  opacity: 0;
+  animation: new-item-animation .3s linear forwards;
+  box-shadow: 0 10px 15px 0 rgba(46,61,73,.52);
+  border-radius: 2px;
+}
+
+.stockWrapper:hover {
+  transform: scale(1);
+  box-shadow: 0 5px 10px 0 rgba(46,61,73,.52);
+}
+
+@keyframes new-item-animation {
+  from {
+      opacity: 0;
+      transform: translateY(-400px);
+  }
+
+  to {
+      opacity: 1;
+      transform : translateY(0);
+  }
+}
+
+.stockWrapper.hide {
+  animation: removed-item-animation .8s
+             cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+   transform-origin: 100% 100%;
+}
+
+@keyframes removed-item-animation {
+  0% {
+      opacity: 1;
+      transform: rotateZ(0);
+  }
+
+  100% {
+      opacity: 0;
+      transform: translateY(300px) rotateZ(-100deg);
+  }
+}

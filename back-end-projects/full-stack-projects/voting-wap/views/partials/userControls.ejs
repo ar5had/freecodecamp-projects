@@ -1,0 +1,87 @@
+<div class="boxWrapper vright userControlsWrapper col-sm-5 col-xs-12">
+	<div class="box">
+		<div class="userControls">
+			<% if (!userVoted) { %>
+				<div class="col-xs-12 text-center heading marB20">	
+					<h3>Vote in this Poll</h3>
+				</div>
+				<form action="/polls/<%= poll.secret %>" method="post" name="voteSubmission" id="voteSubmission" onsubmit="return validateForm()">
+				    <div class="col-xs-12 text-center">
+						<div class="selectWrapper">
+						    <select name="pollQuestionMenu" id="pollQuestionMenu" required="required">
+							    <option value="" disabled selected>Choose an option...</option>
+							    <% poll.options.forEach(function(option, i){%>
+							    	<option value="<%= i %>"><%= option %></option>
+						    	<% }); %>
+						    </select>
+						</div> 
+					</div>
+					<div class="col-xs-12 text-center">
+						<button class="submitBtn" form="voteSubmission">
+							<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+					    	Submit Vote
+					    </button>
+					</div>
+				</form>
+			
+			<% } else { %>
+				<div class="col-xs-12 userVotedBlock text-center heading marB20">
+					<h4><i class="fa fa-check-circle" aria-hidden="true"></i>Vote from your machine has been taken</h4>
+				</div>
+			<% } %>
+			<script> 
+				function validateForm() {
+					var selectBox = document.querySelector("#pollQuestionMenu");
+					if (selectBox.selectedIndex === 0) 
+						return false;
+					else
+						return true;
+				}
+			</script>
+			<% if (pollMaker) { %>
+				<div class="col-xs-12 text-center marB20">
+			       <button class="addOptBtn openModalBtn">
+			       		<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+			        	Add options
+		            </button>
+		        </div>
+		        <div class="col-xs-12 text-center marB20">
+			       <button class="deletePollBtn" data-reqUrl="/polls/<%= poll.secret %>">
+			        	<i class="fa fa-trash-o" aria-hidden="true"></i>
+			        	Delete Poll
+		            </button>
+		        </div>
+			<% } %>
+			<div class="col-xs-12 borderWrapper marB20 text-center">
+				<div class="borderElem col-xs-12"></div>
+			</div>
+			<div class="col-xs-12 text-center marB20">
+			    <a target="_blank" href="http://twitter.com/home?status=<%= poll.question%>+https://voting-wap.herokuapp.com/poll/<%= poll.secret %>" >
+			        <button class="shareBtn twitterBtn">
+			        	<i class="fa fa-twitter" aria-hidden="true"></i>
+		                Share
+		            </button>
+		        </a>
+		    </div>
+		    
+			
+			<div class="col-xs-12 text-center marB20">
+			    <a target="_blank" href="https://plus.google.com/share?url=https://voting-wap.herokuapp.com/poll/<%= poll.secret %>" >
+			        <button class="shareBtn googleBtn">
+			        	<i class="fa fa-google-plus" aria-hidden="true"></i>
+		                Share
+		            </button>
+		        </a>
+		    </div>
+			
+			<div class="col-xs-12 text-center">
+			    <a target="_blank" href="http://www.facebook.com/share.php?u=https://voting-wap.herokuapp.com/poll/<%= poll.secret %>&title=<%= poll.question%>" >
+			        <button class="shareBtn fbBtn">
+			        	<i class="fa fa-facebook" aria-hidden="true"></i>
+		                Share
+		            </button>
+		        </a>
+		    </div>
+		</div>
+	</div>
+</div>

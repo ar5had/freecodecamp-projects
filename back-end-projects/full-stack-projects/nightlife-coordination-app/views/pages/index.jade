@@ -1,0 +1,26 @@
+extends ../layouts/layout
+
+block content
+  
+  include ../components/header              
+  
+  main
+    .container
+      .searchWrapper.text-center.container
+        h2.logo.
+          foodiebay
+        h3.heading.text-center.
+          Find the best meals in any city in the world. Select the most hoppin' restaurants and rsvp ahead of time.
+        .formsWrapper  
+          form#searchForm.text-center(action="/results", method="get", name="searchForm", autocomplete="off")
+            .searchBarWrapper
+              input(type="text", placeholder="Enter your location...", required="required", name="search").searchBar#searchBar
+              
+          form(method="get", action="/results" name="locateMeForm")#locateMeForm
+            input(type="hidden", name="loc" value="true") 
+            a().locateMe.myTooltip
+              i.material-icons  gps_fixed
+                .main Locate Me
+                .tail    
+  
+  script(src="/javascripts/homepage.js")

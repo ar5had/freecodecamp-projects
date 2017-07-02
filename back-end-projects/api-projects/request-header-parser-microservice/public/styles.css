@@ -1,0 +1,37 @@
+body {
+    max-width: 900px;
+    padding: 15px;
+    font-family: 'Bree Serif', sans-serif;
+    margin: auto;
+    letter-spacing: 1px;
+    color: #769876;
+    background: #fefefe;
+}
+
+p, li {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 10px;
+    color: #666;
+    line-height: 1.5;
+}
+
+ul {
+    padding-left: 20px;
+    list-style: square;
+}
+
+p {
+    color: #dac82e;
+    background: rgba(195, 194, 37, 0.22);
+    padding: 5px;
+    margin-top: 0;
+    border-radius: 5px;
+    display: inline-block;
+    word-break: break-all;
+}
+
+h1 {
+    font-size: 30px;
+    border-bottom: solid 2px #ccc;
+    padding: 10px 0;
+}
