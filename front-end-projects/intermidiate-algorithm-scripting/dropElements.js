@@ -1,13 +1,9 @@
+const dropElements = (arr, func) => {
+  let index;
+  for(index in arr) {
+    if(func(arr[index])) return arr.slice(index)
+  }
+  return [];
+};
 
-function dropElements(arr, func) {
-  // Drop them elements.
-  var elemStatusInTest = arr.map(func);
-  //this will find out the first occurence of test pass
-  var index = elemStatusInTest.indexOf(true);
-  if(index >= 0)
-    return arr.splice(index);
-  else
-    return [];
-}
-
-dropElements([1, 2, 3], function(n) {return n < 3; });
+console.log(dropElements([1, 2, 3, 4], function(n) {return n > 5; }));
