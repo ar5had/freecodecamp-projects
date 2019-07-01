@@ -1,29 +1,18 @@
+const convertHTML = str => {
+  const htmlEntities = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    '\'': '&apos;',    
+  };
+  let formattedStr = str;
 
-function convertHTML(str) {
-  // &colon;&rpar;
-  var htmlChars = str.match(/&|<|>|"|'/gi);
-  if(htmlChars){
-    for(var i = 0; i < htmlChars.length; i++){
-      switch(htmlChars[i]){
-
-        case '"':
-          str = str.replace(/"/g,"&quot;");
-          break;
-        case '&':
-          str = str.replace(/&/g,"&amp;");
-          break;
-        case '<':
-          str = str.replace(/</g,"&lt;");
-          break;
-        case '>':
-          str = str.replace(/>/g,"&gt;");
-          break;
-        default :
-          str = str.replace(/'/g,"&apos;");
-      }
-    }
+	for(let key of Object.keys(htmlEntities)) {
+    formattedStr = formattedStr.replace(new RegExp(`${key}`, 'g'), htmlEntities[key]);    
   }
-  return str;
+
+  return formattedStr;
 }
 
-convertHTML("Dolce & Gabbana");
+console.log(convertHTML("Dolce & Gabbana"));
