@@ -1,26 +1,21 @@
+const symDiff = (a, b) => a.filter(e => !b.includes(e)).concat(b.filter(e => !a.includes(e)));
 
-function sym() {
-  var helper = arguments[0];
-  var symDiff = [];
-  for(var i = 1; i <= arguments.length - 1; i++){
-    var elem = arguments[i];
-    helper = helper.filter(function(a){
-      			if(elem.indexOf(a) < 0)
-        			return a;
-    }).concat(
-    	elem.filter(function(a){
-      		if(helper.indexOf(a) < 0)
-        	return a;
-    }) );
+// more efficient than symDiff
+const effSymDiff = (a, b) => {
+	const diff = [];
+  	for(let i = 0; i < Math.max(a.length, b.length); i++) {
+    	const aElem = a[i];
+      	const bElem = b[i];
+      
+     	if(aElem && !b.includes(aElem)) {
+          	diff.push(aElem);
+        }
+      
+      	if(bElem && !a.includes(bElem)) {
+        	diff.push(bElem);
+        }
+    }
+	return diff;
+};
 
-  }
-  //some redundant elems in helper may be present so now removing them
-  for(var pos in helper){
-  	if(symDiff.indexOf(helper[pos]) < 0)
-      symDiff.push(helper[pos]);
-
-  }
-  return symDiff;
-}
-
-sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]);
+const symDiffArr = (...arr) => arr.reduce(symDiff);
