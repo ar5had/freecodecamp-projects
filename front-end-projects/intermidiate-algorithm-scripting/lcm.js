@@ -1,39 +1,33 @@
-function range(start, stop){
-  if(start > stop){
-    start = start + stop;
-    stop = start - stop;
-    start = start - stop;
+const hcf = (a, b) => {
+  if(a === 0) return b;
+  if(b === 0) return a;
+
+  let no1 = Math.abs(a);
+  let no2 = Math.abs(b);
+
+  while(no2 !== 0) {
+    const rem = no1 % no2;
+    no1 = no2;
+    no2 = rem;
   }
 
-  var a = [start], b = start;
-  while(b <= stop){
-    a.push(b);
-    b++;
-  }
-  return a;
-}
-function smallestCommons(arr) {
-  // Range is not predefined
-  arr = range(arr[0], arr[1]);
-  var newArr = [];
-  for(var i = 2; i <= arr[arr.length-1]; i++){
-    while(arr.indexOf(i) >= 0){
-      var hasFactor = false;
-      for(var elem in arr){
-        if(arr[elem] % i === 0){
-        arr[elem] = arr[elem] / i ;
-        hasFactor = true;
-        }
-      }
-      if(hasFactor)
-        newArr.push(i);
-    }
-  }
-  newArr = newArr.reduce(function(a, b){
-    return a*b;
-  });
-  return newArr;
+  return no1;
 }
 
+const lcm = (a, b) => (a * b) / hcf(a, b);
+
+const smallestCommons = ([min, max]) => {
+  if(min > max) {
+    [min, max] = [max, min];
+  }
+
+  let final_lcm = min;
+
+  for(let i = min + 1; i <= max; i++) {
+    final_lcm = final_lcm = lcm(final_lcm, i);
+  }
+
+  return final_lcm;
+};
 
 smallestCommons([1,5]);
