@@ -1,12 +1,29 @@
+// non efficient approach, as iterating over no that were not unique in the second filter function
+const diffArray = (a, b) => {
+  const diff = a.filter(e => !b.includes(e));
+  return diff.concat(b.filter(e => !a.includes(e)))
+};
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
 
-function diffArray(arr1, arr2) {
-   var arr = arr1.filter(function(elem){
-     return ( arr2.indexOf(elem) < 0 );
-   });
-  //need to check in both arrays because some bugs shows up when elements of only smaller arrays is compared. THINK YOURSELF!
-  arr = arr.concat(arr2.filter(function(elem){
-     return ( arr1.indexOf(elem) < 0 );}));
-  return arr;
-}
+// efficient approach
 
+const diffArray = (a, b) => {
+  const len = Math.max(a.length, b.length);
+  const diff = [];
+
+  for(let i = 0; i < len; i++) {
+    const aElem = a[i];
+    const bElem = b[i];
+   
+    if(aElem && !b.includes(aElem)) { 
+      diff.push(aElem);
+    }
+
+    if(bElem && !a.includes(bElem)) { 
+      diff.push(bElem);
+    }
+  }
+
+  return diff;
+};
 diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
