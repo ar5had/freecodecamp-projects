@@ -1,7 +1,4 @@
 const hcf = (a, b) => {
-  if(a === 0) return b;
-  if(b === 0) return a;
-
   let no1 = Math.abs(a);
   let no2 = Math.abs(b);
 
@@ -20,7 +17,12 @@ const smallestCommons = ([min, max]) => {
   if(min > max) {
     [min, max] = [max, min];
   }
-
+  
+  // LCM of zero is undefined
+  if(min < 1) {
+    return console.log("Range should start from positive integer!");
+  }
+  
   let final_lcm = min;
 
   for(let i = min + 1; i <= max; i++) {
