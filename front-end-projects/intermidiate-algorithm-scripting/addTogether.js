@@ -1,27 +1,9 @@
-
-function addTogether() {
-  var length = arguments.length;
-
-  if(length === 2){
-    if(arguments[0] !== null && typeof arguments[0] === "number" && arguments[1] !== null && typeof arguments[1] === "number")
-      return arguments[0]+arguments[1];
-    else
-      return undefined;
-    }
-  else{
-    if(arguments[0] !== null && typeof arguments[0] === "number" ){
-      var b = arguments[0];
-      return function(a){
-        if(arguments[0] !== null && typeof arguments[0] === "number")
-          return b + a;
-        else
-          return undefined;
-      };
-    }
-    else
-      return undefined;
-
+const addTogether = (a, b) => {
+  if(typeof a !== 'number' || (Boolean(b) && typeof b !== 'number')) {
+    return undefined;
+  } else if (typeof b === 'number') {
+    return a + b;
+  } else {
+    return (c) => addTogether(c, a);
   }
 }
-
-addTogether(2, 3);
