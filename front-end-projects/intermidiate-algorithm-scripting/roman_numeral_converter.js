@@ -1,7 +1,7 @@
 const convertToRoman = n => {
   const romanSymBindings = [
     {no: 1000, sym1: 'M'},
-    {no: 100, sym1: 'C', sym5: 'D', },
+    {no: 100, sym1: 'C', sym5: 'D'},
     {no: 10, sym1: 'X', sym5: 'L'},
     {no: 1, sym1: 'I', sym5: 'V'},
   ];
