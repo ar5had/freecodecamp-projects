@@ -1,55 +1,32 @@
-function convertToRoman(num) {
-  var thousands = Math.floor(num / 1000);
-  num = num % 1000;
-  var fiveHundreds = Math.floor(num / 500);
-  num = num % 500;
-  var hundreds = Math.floor(num / 100);
-  num = num % 100;
-  var fifties = Math.floor(num / 50);
-  num = num % 50;
-  var tens = Math.floor(num /10);
-  num = num % 10;
-  var fives = Math.floor(num /5);
-  num = num %  5;
-  var ones = num / 1;
-  var romanNumeral = "";
+const convertToRoman = n => {
+  const romanSymBindings = [
+    {no: 1000, sym1: 'M'},
+    {no: 100, sym1: 'C', sym5: 'D', },
+    {no: 10, sym1: 'X', sym5: 'L'},
+    {no: 1, sym1: 'I', sym5: 'V'},
+  ];
 
-  var romanDigits = [ [thousands, 'M'], [fiveHundreds, 'D'], [hundreds, 'C'], [fifties, 'L'], [tens, 'X'], [fives, 'V'], [ones, 'I'] ];
-  // solve special cases
-   if(romanDigits[1][0] + romanDigits[2][0] === 5){
-      romanDigits[1][0] = 0;
-      romanDigits[2][0] = 1;
-      romanDigits[2][1] = 'CM';
-   }
-   if(romanDigits[3][0] + romanDigits[4][0] === 5){
-      romanDigits[3][0] = 0;
-      romanDigits[4][0] = 1;
-      romanDigits[4][1] = 'XC';
-   }
-   if(romanDigits[3][0] !==1 && romanDigits[4][0] === 4){
-      romanDigits[4][0] = 1;
-      romanDigits[4][1] = 'XL';
-   }
-   if(romanDigits[5][0] + romanDigits[6][0] === 5){
-      romanDigits[5][0] = 0;
-      romanDigits[6][0] = 1;
-      romanDigits[6][1] = 'IX';
-   }
-   if(romanDigits[5][0] !== 1 && romanDigits[6][0] === 4){
-      romanDigits[6][0] = 1;
-      romanDigits[6][1] = 'IV';
-   }
+  let romanStr = '';
+  let decNo = n;
 
-  // feeds romanNumeral
-  for(var i = 0; i < romanDigits.length; i++){
+  romanSymBindings.forEach(({no, sym1, sym5}, i) => {
+    const res = parseInt(decNo / no);
+    decNo %= no;
 
-      while(romanDigits[i][0] > 0){
-        romanNumeral += romanDigits[i][1];
-        romanDigits[i][0]--;
-      }
+    if(no === 1000) {
+      romanStr += sym1.repeat(res);
+    } else if(res === 4) {
+      romanStr += sym1 + sym5;
+    } else if(res === 9) {
+      romanStr += sym1 + romanSymBindings[i - 1].sym1;      
+    } else {
+      const showSym5 = (res / 5) >= 1;
+      const rem5 = res % 5;
+      romanStr += (showSym5 ? sym5 : '') + sym1.repeat(rem5);
+    }
+  });
 
-  }
-  return romanNumeral;
-}
+  return romanStr;
+};
 
-convertToRoman(36);
+console.log(convertToRoman(9500))
