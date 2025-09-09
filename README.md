@@ -2,4 +2,4 @@
 This repo contains all the freecodecamp projects.
 
 ## Projects URL
-http://iamarshad.com
+https://ar5had.github.com
